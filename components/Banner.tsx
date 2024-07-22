@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import styles from "./banner.module.css";
+
 const Banner = ({ text }: { text: string }) => {
   return (
     <div className={styles.banner}>
