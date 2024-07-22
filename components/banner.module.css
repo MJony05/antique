@@ -1,0 +1,21 @@
+.banner {
+  font-family: "Noto Serif", serif;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  height: 280px;
+  justify-content: center;
+  border: 25px solid white;
+  border-image: url("../public/border.png") 30 round;
+  background-color: white;
+}
+.bannerImage {
+  object-fit: contain;
+}
+.title {
+  font-family: "Noto Serif", serif;
+  font-size: 36px;
+  font-weight: 400;
+}
