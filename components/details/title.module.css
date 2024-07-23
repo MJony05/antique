@@ -1,0 +1,17 @@
+.title {
+  font-family: "Noto Serif", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 43.58px;
+  text-align: left;
+  position: relative;
+}
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 305px;
+  height: 1px;
+  background-color: #e3c05c;
+}

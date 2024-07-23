@@ -1,0 +1,22 @@
+.catalog {
+  padding: 30px;
+  padding-right: 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.catalogTitle {
+  font-family: "Noto Serif", serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+.catalogName {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.catalogItem {
+  font-size: 16px;
+  margin: 10px 0;
+}

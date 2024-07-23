@@ -1,0 +1,9 @@
+.main {
+  display: grid;
+  background-color: white;
+  grid-template-columns: minmax(300px, max-content) 1fr;
+  overflow: hidden;
+}
+.mainRight {
+  padding: 30px 0 40px 40px;
+}
