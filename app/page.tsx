@@ -4,6 +4,7 @@ import Catalog from "@/components/details/Catalog";
 import AboutComponent from "@/components/home/AboutComponent";
 import Navbar from "@/components/Navbar";
 import styles from "./page.module.css";
+import NewItems from "@/components/home/NewItems";
 export default function Home() {
   return (
     <>
@@ -13,8 +14,10 @@ export default function Home() {
         <Catalog />
         <div className={styles.mainRight}>
           <AboutComponent />
+          <NewItems />
         </div>
       </main>
+
       <ContactForm />
     </>
   );
