@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import localFont from "next/font/local";
+import Footer from "@/components/Footer";
 
 // Font files can be colocated inside of `app`
 const myFont = localFont({
@@ -26,6 +27,7 @@ export default function RootLayout({
         <div className="container">
           <Header />
           {children}
+          <Footer />
         </div>
       </body>
     </html>
