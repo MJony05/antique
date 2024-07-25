@@ -1,0 +1,12 @@
+.newItems {
+  display: grid;
+  flex-direction: column;
+  gap: 30px;
+}
+.newItemsContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 260px);
+  padding-right: 40px;
+  gap: 25px;
+  justify-content: space-between;
+}
