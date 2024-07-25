@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import styles from "./page.module.css";
 import NewItems from "@/components/home/NewItems";
 import Advantages from "@/components/home/Advantages";
+import News from "@/components/home/News";
 export default function Home() {
   return (
     <>
@@ -19,7 +20,7 @@ export default function Home() {
         </div>
       </main>
       <Advantages />
-
+      <News />
       <ContactForm />
     </>
   );

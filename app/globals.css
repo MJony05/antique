@@ -10,7 +10,6 @@ body {
   overflow-x: hidden;
 }
 body {
-  height: 1000vh;
   background-image: url("../public/bg-image.png");
   background-size: contain;
 }
