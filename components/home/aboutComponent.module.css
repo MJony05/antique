@@ -43,6 +43,10 @@
   line-height: 24px;
   font-weight: 400;
 }
+.contentLeft p span {
+  color: #e3c05c;
+  font-weight: 500;
+}
 .contentRight {
   display: flex;
   align-items: center;

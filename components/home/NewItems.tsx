@@ -38,6 +38,9 @@ const NewItems = () => {
         {arr.map((item) => (
           <Card data={item} key={item.id} />
         ))}
+        {arr.map((item) => (
+          <Card data={item} key={item.id} />
+        ))}
       </div>
     </div>
   );

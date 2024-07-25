@@ -5,6 +5,7 @@ import AboutComponent from "@/components/home/AboutComponent";
 import Navbar from "@/components/Navbar";
 import styles from "./page.module.css";
 import NewItems from "@/components/home/NewItems";
+import Advantages from "@/components/home/Advantages";
 export default function Home() {
   return (
     <>
@@ -17,6 +18,7 @@ export default function Home() {
           <NewItems />
         </div>
       </main>
+      <Advantages />
 
       <ContactForm />
     </>

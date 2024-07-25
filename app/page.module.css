@@ -2,6 +2,7 @@
   display: grid;
   background-color: white;
   grid-template-columns: minmax(300px, max-content) 1fr;
+  align-items: baseline;
   overflow: hidden;
 }
 .mainRight {
