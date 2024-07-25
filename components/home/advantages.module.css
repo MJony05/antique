@@ -62,3 +62,7 @@
 .advantagesLastItem:hover {
   box-shadow: 0px 5px 25px #0000001a;
 }
+.advantagesLastItem span {
+  color: #e3c05c;
+  font-weight: 500;
+}
