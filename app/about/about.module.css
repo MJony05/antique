@@ -1,0 +1,98 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.aboutContent {
+  background-color: white;
+  padding: 40px 20px;
+}
+.aboutContent p {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 10px 0;
+}
+.aboutContent span {
+  font-weight: 500;
+  color: #e3c05c;
+}
+.aboutContent h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px 0;
+  line-height: 30px;
+}
+.aboutImages {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+.aboutImages1,
+.aboutImages2 {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 300px);
+  gap: 20px;
+}
+.aboutImages img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.aboutImage2 {
+  /* height: 100%; */
+  grid-row: span 2;
+}
+.aboutImage4 {
+  grid-column: span 2;
+}
+.aboutAdvantages {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.aboutContent .aboutSubtitle {
+  font-weight: 400;
+  font-size: 16px;
+  margin: 20px 0 40px 0;
+}
+.aboutSubtitle span {
+  color: #e3c05c;
+  font-weight: 500;
+}
+.advantagesContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+.advantagesItem {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content 1fr;
+  /* align-items: center; */
+  row-gap: 20px;
+  column-gap: 10px;
+  padding: 15px;
+  background-color: white;
+  height: 266px;
+  transition: all 0.5s ease;
+  box-shadow: 0px 5px 25px #0000001a;
+  border-radius: 5px;
+}
+
+.title {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+.text {
+  grid-column: 1/3;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.5px;
+  text-align: left;
+  color: #000000b2;
+}
