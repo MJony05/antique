@@ -5,8 +5,8 @@
 }
 .newItemsContent {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 260px);
+  grid-template-columns: repeat(auto-fill, 250px);
   padding-right: 40px;
-  gap: 25px;
-  justify-content: space-between;
+  gap: 15px;
+  justify-content: space-around;
 }

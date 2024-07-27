@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./catalog.module.css";
+import Link from "next/link";
 const arr = [
   "Санкт-Петербург",
   "Москва",
@@ -12,12 +13,15 @@ const Catalog = () => {
     <div className={styles.catalog}>
       <h2 className={styles.catalogTitle}>Каталог</h2>
       <div className={styles.catalogItems}>
-        <h3 className={styles.catalogName}>
+        <Link href="#" className={styles.catalogName}>
           Старинные гравюры, литографии, офорты
-        </h3>
+        </Link>
         {arr.map((item) => (
           <p className={styles.catalogItem} key={item}>
-            - {item}
+            <Link className={styles.catalogLink} href="#">
+              {" "}
+              - {item}{" "}
+            </Link>
           </p>
         ))}
         {arr.map((item) => (
