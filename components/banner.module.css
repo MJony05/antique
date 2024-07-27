@@ -21,3 +21,26 @@
   font-weight: 400;
   text-transform: uppercase;
 }
+@media screen and (max-width: 700px) {
+  .banner {
+    height: 200px;
+    border-image: url("/border.png") 40 round;
+  }
+  .bannerImage {
+    width: 266px;
+  }
+  .title {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .banner {
+    height: 140px;
+    gap: 10px;
+    border: 10px solid white;
+    border-image: url("/border.png") 20 round;
+  }
+  .title {
+    font-size: 20px;
+  }
+}

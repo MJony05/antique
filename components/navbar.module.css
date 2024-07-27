@@ -47,3 +47,24 @@
   height: 100%;
   cursor: pointer;
 }
+@media (max-width: 1200px) {
+  .navLinks {
+    gap: 30px;
+  }
+  .navContent {
+    width: 95%;
+  }
+}
+@media (max-width: 850px) {
+  .navLinks {
+    gap: 15px;
+  }
+  .navLink {
+    font-size: 16px;
+  }
+}
+@media (max-width: 700px) {
+  .navbar {
+    display: none;
+  }
+}
