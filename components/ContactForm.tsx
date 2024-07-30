@@ -5,6 +5,7 @@ import Button from "./details/button";
 const ContactForm = () => {
   return (
     <div className={styles.contact}>
+      <h1 className={styles.contactTitle}>Обратная связь</h1>
       <Image
         className={styles.contactImage}
         src="/contact-image.png"

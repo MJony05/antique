@@ -8,6 +8,9 @@
   gap: 40px;
   background-color: #fff;
 }
+.contactTitle {
+  display: none;
+}
 .contactImage {
   margin: 0 auto;
   max-width: 100%;
@@ -45,4 +48,37 @@
 .contactText {
   margin: 10px 0 30px 0;
   font-size: 13px;
+}
+@media (max-width: 700px) {
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px 10px;
+  }
+  .contactImage {
+    width: 100%;
+    height: auto;
+  }
+  .contactTitle {
+    display: block;
+    font-family: "Noto Serif", serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 43.58px;
+    text-align: center;
+  }
+  .contactForm h1 {
+    display: none;
+  }
+  .contactForm {
+    padding: 0;
+  }
+  .contactText {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .contactTitle {
+    font-size: 24px;
+  }
 }

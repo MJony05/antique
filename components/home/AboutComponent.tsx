@@ -25,7 +25,7 @@ const AboutComponent = () => {
   };
 
   return (
-    <>
+    <div className={styles.aboutHome}>
       <div className={styles.top}>
         <Title text="О нас" size={32} />
         <div className={styles.pagination}>
@@ -93,7 +93,7 @@ const AboutComponent = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
