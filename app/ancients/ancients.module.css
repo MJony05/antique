@@ -20,6 +20,7 @@
   font-size: 16px;
   font-weight: 400;
   transition: background 0.1s ease;
+  min-width: max-content;
 }
 .ancientsFilterItem:hover {
   background: linear-gradient(
@@ -38,4 +39,17 @@
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   justify-content: space-around;
   gap: 20px;
+}
+@media (max-width: 768px) {
+  .ancientsContent {
+    padding: 20px 10px;
+  }
+  .ancientsFilter {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
+  .ancientsFilterItem {
+    font-size: 14px;
+    padding: 10px 22px;
+  }
 }

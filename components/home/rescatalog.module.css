@@ -32,4 +32,10 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  .resCatalog {
+    display: flex;
+  }
 }
