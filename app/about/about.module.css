@@ -96,3 +96,29 @@
   text-align: left;
   color: #000000b2;
 }
+.resCa {
+  display: none;
+}
+@media (max-width: 1000px) {
+  .resCa {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 800px) {
+  .aboutContent {
+    padding: 20px 10px;
+  }
+  .aboutImages {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .aboutImages1 {
+    width: 100%;
+    gap: 10px;
+  }
+  .aboutImages2 {
+    width: 100%;
+    gap: 10px;
+  }
+}

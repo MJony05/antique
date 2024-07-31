@@ -111,6 +111,9 @@
     gap: 20px;
     height: auto;
   }
+  .contentLeft p {
+    font-size: 14px;
+  }
   .pagination2 {
     display: flex;
   }

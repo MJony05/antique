@@ -1,8 +1,10 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styles from "./navbar.module.css";
 const Navbar = () => {
+  const [open, setOpen] = React.useState(false);
   return (
     <div className={styles.navbar}>
       <div className={styles.navContent}>
@@ -16,9 +18,28 @@ const Navbar = () => {
           <Link className={styles.navLink} href="/baguette">
             Оформление в багет
           </Link>
-          <Link className={styles.navLink} href="/services">
-            Услуги
-          </Link>
+          <div className={styles.navButton}>
+            <p onClick={() => setOpen(!open)}>
+              Услуги{" "}
+              <Image src="/vector.svg" alt="arrow" width={13} height={7} />
+            </p>
+            {open && (
+              <div className={styles.navSubLinks}>
+                <Link className={styles.navSubLink} href="/about">
+                  Примерка
+                </Link>
+                <Link className={styles.navSubLink} href="#">
+                  Оплата
+                </Link>
+                <Link className={styles.navSubLink} href="#">
+                  Доставка
+                </Link>
+                <Link className={styles.navSubLink} href="#">
+                  Упаковка
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
         <div className={styles.searchBox}>
           <input

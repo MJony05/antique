@@ -34,6 +34,10 @@
 }
 @media (max-width: 1000px) {
   .catalog {
-    display: none;
+    box-shadow: none;
+  }
+  .catalogHeader {
+    display: flex;
+    justify-content: space-between;
   }
 }

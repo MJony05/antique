@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./catalog.module.css";
 import Link from "next/link";
+import Image from "next/image";
 const arr = [
   "Санкт-Петербург",
   "Москва",
@@ -12,6 +13,7 @@ const Catalog = () => {
   return (
     <div className={styles.catalog}>
       <h2 className={styles.catalogTitle}>Каталог</h2>
+
       <div className={styles.catalogItems}>
         <Link href="#" className={styles.catalogName}>
           Старинные гравюры, литографии, офорты

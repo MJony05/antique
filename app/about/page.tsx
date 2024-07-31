@@ -4,6 +4,7 @@ import styles from "./about.module.css";
 import Image from "next/image";
 import Title from "@/components/details/Title";
 import ContactForm from "@/components/ContactForm";
+import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
 const arr = [
   {
     id: "1",
@@ -35,6 +36,8 @@ const page = () => {
     <div className={styles.about}>
       <Banner text="Немного о нашей компании" />
       <Navbar />
+      <ResponsiveCatalog />
+
       <div className={styles.aboutContent}>
         <p>
           Добро пожаловать в арт-лавку <span>&quot;ВЕРНИСАЖ&quot;</span>! Мы –
