@@ -19,7 +19,7 @@ const Navbar = () => {
             Оформление в багет
           </Link>
           <div className={styles.navButton}>
-            <p onClick={() => setOpen(!open)}>
+            <p className={styles.navLink} onClick={() => setOpen(!open)}>
               Услуги{" "}
               <Image src="/vector.svg" alt="arrow" width={13} height={7} />
             </p>
