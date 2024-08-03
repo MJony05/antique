@@ -49,6 +49,11 @@
   margin: 10px 0 30px 0;
   font-size: 13px;
 }
+@media (max-width: 1000px) {
+  .contactForm {
+    padding: 0;
+  }
+}
 @media (max-width: 700px) {
   .contact {
     grid-template-columns: 1fr;
@@ -72,6 +77,7 @@
   }
   .contactForm {
     padding: 0;
+    text-align: center;
   }
   .contactText {
     margin: 0;
