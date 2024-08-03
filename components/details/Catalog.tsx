@@ -21,11 +21,10 @@ export default async function Catalog() {
       <h2 className={styles.catalogTitle}>Каталог</h2>
       <div className={styles.catalogItems}>
         {data.map((category: any) => (
-          <>
+          <div key={category.id}>
             <Link
               className={styles.catalogLink}
               href={`category/${category.id}`}
-              key={category.id}
             >
               <h3 className={styles.catalogName}>{category.name}</h3>
             </Link>
@@ -41,7 +40,7 @@ export default async function Catalog() {
                   </p>
                 ))
               : ""}
-          </>
+          </div>
         ))}
       </div>
     </div>

@@ -36,8 +36,9 @@
 .cards {
   margin-top: 70px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  justify-content: space-around;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  /* justify-content: space-around; */
+  justify-items: center;
   gap: 20px;
 }
 @media (max-width: 768px) {
@@ -51,5 +52,8 @@
   .ancientsFilterItem {
     font-size: 14px;
     padding: 10px 22px;
+  }
+  .cards {
+    margin-top: 20px;
   }
 }

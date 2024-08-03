@@ -8,7 +8,7 @@ const CardContent = () => {
       <div className="cardContent">
         <Image
           className="mainImage"
-          src="/example-product.png"
+          src="/example-product2.png"
           alt="card"
           width={610}
           height={712}
