@@ -17,6 +17,10 @@
 }
 @media (max-width: 700px) {
   .title {
+    font-size: 24px !important;
+    line-height: 1.2;
+  }
+  .title {
     text-align: center;
   }
   .title::after {
@@ -26,9 +30,6 @@
   }
 }
 @media (max-width: 600px) {
-  .title {
-    font-size: 24px !important;
-  }
   .title::after {
     width: 200px;
   }
