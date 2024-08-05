@@ -12,10 +12,10 @@ const Navbar = () => {
           <Link className={styles.navLink} href="/about">
             О нас
           </Link>
-          <Link className={styles.navLink} href="/contact">
+          <Link className={styles.navLink} href="/decor">
             Контакты
           </Link>
-          <Link className={styles.navLink} href="/baguette">
+          <Link className={styles.navLink} href="/decor">
             Оформление в багет
           </Link>
           <div className={styles.navButton}>
@@ -28,7 +28,7 @@ const Navbar = () => {
                 <Link className={styles.navSubLink} href="/about">
                   Примерка
                 </Link>
-                <Link className={styles.navSubLink} href="#">
+                <Link className={styles.navSubLink} href="/payment">
                   Оплата
                 </Link>
                 <Link className={styles.navSubLink} href="#">

@@ -5,6 +5,8 @@ import React from "react";
 import "./decor.css";
 import Image from "next/image";
 import Title from "@/components/details/Title";
+import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 const arr = [
   {
     id: "01",
@@ -265,6 +267,7 @@ const page = () => {
           </div>
         </div>
       </main>
+      <ContactForm />
     </div>
   );
 };
