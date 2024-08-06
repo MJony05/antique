@@ -88,6 +88,9 @@
   width: 100%;
   object-fit: contain;
 }
+.description {
+  margin-top: 10px;
+}
 .similars {
   margin-top: 100px;
 }
@@ -173,6 +176,9 @@
   }
   .similarCards {
     margin-top: 20px;
+  }
+  .description {
+    font-size: 14px;
   }
 }
 @media (max-width: 400px) {

@@ -9,7 +9,7 @@ import Advantages from "@/components/home/Advantages";
 import News from "@/components/home/News";
 import Image from "next/image";
 import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <Banner text="АРТ-ЛАВКА" />

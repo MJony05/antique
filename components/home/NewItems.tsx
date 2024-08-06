@@ -1,44 +1,44 @@
-import React from "react";
-import Header from "../Header";
+"use client";
+import React, { useEffect, useState } from "react";
 import Title from "../details/Title";
 import styles from "./newitems.module.css";
 import Card from "../details/Card";
-const arr = [
-  {
-    id: "1",
-    image: "/card-example2.png",
-    title: "Павел I. Прижизненный портрет. 1780",
-    category: "Флора и Фауна",
-    price: 30000,
-  },
-  {
-    id: "2",
-    image: "/card-example2.png",
-    title:
-      "Московский Императорский Воспитательный дом. 1857г. Антикварная гравюра",
-    category: "Флора и Фауна",
-    price: 30000,
-  },
-  {
-    id: "3",
-    image: "/card-example3.png",
-    title: "Московские зарисовки. 1890г. Хакер/Бренд’амур. Старинная гравира",
-    category: "Флора и Фауна",
-    price: 30000,
-  },
-];
+
 const NewItems = () => {
+  const [data, setData] = useState({ results: [] });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const res = await fetch(process.env.NEXT_PUBLIC_API + "product/");
+        if (!res.ok) {
+          throw new Error(`Error: ${res.status}`);
+        }
+        const newData = await res.json();
+        setData(newData);
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures this runs once on mount
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <div className={styles.newItems}>
       <Title text="Новинки" size={36} />
       <div className={styles.newItemsContent}>
-        {arr.map((item) => (
-          <Card data={item} key={item.id} />
-        ))}
-        {arr.map((item) => (
-          <Card data={item} key={item.id} />
-        ))}
-        {arr.map((item) => (
+        {loading && <p>Loading...</p>}
+        {data.results.map((item: any) => (
           <Card data={item} key={item.id} />
         ))}
       </div>
