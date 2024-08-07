@@ -1,0 +1,20 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+main {
+  padding: 40px 20px;
+  background-color: white;
+}
+main p {
+  font-size: 20px;
+}
+@media screen and (max-width: 768px) {
+  main {
+    padding: 20px 10px;
+  }
+  main p {
+    font-size: 16px;
+  }
+}

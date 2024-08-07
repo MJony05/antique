@@ -113,6 +113,7 @@ const Page = () => {
                 Имя<span>*</span>
               </label>
               <input
+                required
                 id="name"
                 type="text"
                 value={formData.name}
@@ -124,6 +125,7 @@ const Page = () => {
                 Фамилия<span>*</span>
               </label>
               <input
+                required
                 id="surname"
                 type="text"
                 value={formData.surname}
@@ -134,6 +136,7 @@ const Page = () => {
           <div className="formRow">
             <label htmlFor="company">Название компании (необязательно)</label>
             <input
+              required
               id="company"
               type="text"
               value={formData.company}
@@ -162,6 +165,7 @@ const Page = () => {
               Адрес <span>*</span>
             </label>
             <input
+              required
               id="address"
               type="text"
               placeholder="Номер дома и название улицы"
@@ -174,6 +178,7 @@ const Page = () => {
               Населенный пункт<span>*</span>
             </label>
             <input
+              required
               id="city"
               type="text"
               value={formData.city}
@@ -185,6 +190,7 @@ const Page = () => {
               Область / район<span>*</span>
             </label>
             <input
+              required
               id="region"
               type="text"
               value={formData.region}
@@ -196,6 +202,7 @@ const Page = () => {
               Почтовый индекс<span>*</span>
             </label>
             <input
+              required
               id="postalCode"
               type="text"
               value={formData.postalCode}
@@ -225,7 +232,11 @@ const Page = () => {
               onChange={handleInputChange}
             />
           </div>
-          <button className="button" type="submit">
+          <button
+            style={{ cursor: "pointer" }}
+            className="button"
+            type="submit"
+          >
             Подтвердить заказ
           </button>
         </form>

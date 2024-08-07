@@ -14,6 +14,11 @@ const Page = () => {
     const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
     setCart(existingCart);
   }, []);
+  const handleDelete = (id: string) => {
+    const updatedCart = cart.filter((item: any) => item.id !== id);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
   return (
     <div className="cart">
       <Banner text="Корзина" />
@@ -42,12 +47,14 @@ const Page = () => {
                     {item.amount} x {item.price} ₽ = {item.amount * item.price}
                      ₽
                   </h3>
-                  <Button text="Удалить с карзины" />
+                  <span onClick={() => handleDelete(item.id)}>
+                    <Button text="Удалить с карзины" />
+                  </span>
                 </div>
               </div>
             ))
           ) : (
-            <h3> Корзина пуста </h3>
+            <h3>Корзина пуста</h3>
           )}
         </div>
         <div className="sum">

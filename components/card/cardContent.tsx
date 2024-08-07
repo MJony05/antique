@@ -9,7 +9,10 @@ const CardContent = ({ productId }: any) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [similars, setSimilars] = useState([]);
+  const [amount, setAmount] = useState(1);
+
   console.log(productData);
+
   useEffect(() => {
     const fetchProductData = async () => {
       try {
@@ -31,6 +34,24 @@ const CardContent = ({ productId }: any) => {
 
     fetchProductData();
   }, [productId]);
+
+  const handleAddToCart = () => {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const productIndex = cart.findIndex(
+      (item: any) => item.id === productData.id
+    );
+
+    if (productIndex > -1) {
+      cart[productIndex].amount += amount;
+    } else {
+      cart.push({ ...productData, amount });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
+
+  const incrementAmount = () => setAmount(amount + 1);
+  const decrementAmount = () => setAmount(amount > 1 ? amount - 1 : 1);
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -73,11 +94,17 @@ const CardContent = ({ productId }: any) => {
                 <h3 className="price">{productData.price} руб.</h3>
                 <div className="btn-group">
                   <div className="amount-editor">
-                    <button className="btn">-</button>
-                    <span className="amount">1</span>
-                    <button className="btn">+</button>
+                    <button className="btn" onClick={decrementAmount}>
+                      -
+                    </button>
+                    <span className="amount">{amount}</span>
+                    <button className="btn" onClick={incrementAmount}>
+                      +
+                    </button>
                   </div>
-                  <button className="btn to-cart">В корзину</button>
+                  <button className="btn to-cart" onClick={handleAddToCart}>
+                    В корзину
+                  </button>
                 </div>
               </div>
 
