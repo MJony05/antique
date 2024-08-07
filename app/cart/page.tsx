@@ -1,0 +1,72 @@
+"use client";
+import Banner from "@/components/Banner";
+import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
+import Navbar from "@/components/Navbar";
+import React, { useEffect, useState } from "react";
+import "./card.css";
+import ContactForm from "@/components/ContactForm";
+import Image from "next/image";
+import Button from "@/components/details/button";
+const Page = () => {
+  const [cart, setCart] = useState([]);
+  useEffect(() => {
+    const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    setCart(existingCart);
+  }, []);
+  return (
+    <div className="cart">
+      <Banner text="Корзина" />
+      <Navbar />
+      <ResponsiveCatalog />
+      <main className="cart_main">
+        <div className="cart_products">
+          {cart.length > 0 ? (
+            cart.map((item: any) => (
+              <div key={item.id} className="cart_product">
+                <div className="product_left">
+                  <Image
+                    src={item.images[0].image}
+                    alt="decor"
+                    width={251}
+                    height={196}
+                    className="product_image"
+                  />
+                  <div className="product_infos">
+                    <h3 className="product_name">Наименование:</h3>
+                    <p className="product_title">{item.name}</p>
+                  </div>
+                </div>
+                <div className="product_right">
+                  <h3 className="product_price">
+                    {item.amount} x {item.price} ₽ = {item.amount * item.price}
+                     ₽
+                  </h3>
+                  <Button text="Удалить с карзины" />
+                </div>
+              </div>
+            ))
+          ) : (
+            <h3> Корзина пуста </h3>
+          )}
+        </div>
+        <div className="sum">
+          <div>
+            <p>СУММА ЗАКАЗА:</p>
+            <h3>
+              {cart.reduce(
+                (acc, item: { price: number; amount: number }) =>
+                  acc + item.price * item.amount,
+                0
+              )}
+              13141  ₽
+            </h3>
+          </div>
+          <Button text="Оформить заказ" />
+        </div>
+      </main>
+      <ContactForm />
+    </div>
+  );
+};
+
+export default Page;

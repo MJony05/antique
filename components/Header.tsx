@@ -4,9 +4,11 @@ import styles from "./header.module.css";
 import Image from "next/image";
 import Button from "./details/button";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 const Header = () => {
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
+  const router = useRouter();
   return (
     <nav className={styles.navbar}>
       <div className={styles.navLeft}>
@@ -60,8 +62,10 @@ const Header = () => {
         <div className={styles.navRightItem}>
           <Button text="Заказать звонок" />
         </div>
-
         <Image
+          onClick={() => {
+            router.push("/cart");
+          }}
           className={styles.cart}
           src="/cart-icon.svg"
           alt="cart"

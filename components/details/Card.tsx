@@ -11,6 +11,26 @@ interface CardProps {
   name: string;
 }
 const Card = ({ data }: { data: CardProps }) => {
+  const handleAddToCart = () => {
+    console.log(data);
+    // Get existing cart items from local storage
+    const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    // Find if the item already exists in the cart
+    const itemIndex = existingCart.findIndex(
+      (item: CardProps) => item.id === data.id
+    );
+
+    // If item exists, increment the amount, otherwise add the item with amount 1
+    if (itemIndex !== -1) {
+      existingCart[itemIndex].amount += 1;
+    } else {
+      existingCart.push({ ...data, amount: 1 });
+    }
+
+    // Save updated cart to local storage
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+  };
   return (
     <div className={styles.card}>
       <Image
@@ -38,7 +58,9 @@ const Card = ({ data }: { data: CardProps }) => {
               />
             </Link>
           </div>
-          <button className={styles.addButton}>В корзину</button>
+          <button onClick={handleAddToCart} className={styles.addButton}>
+            В корзину
+          </button>
         </div>
       </div>
     </div>

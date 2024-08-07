@@ -20,7 +20,6 @@ const CardContent = ({ productId }: any) => {
           throw new Error("Failed to fetch product data");
         }
         const data = await response.json();
-        console.log(data);
         setProductData(data.serializer);
         setSimilars(data.product);
       } catch (err: any) {
