@@ -3,7 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
 import Navbar from "@/components/Navbar";
 import React from "react";
-import "./style.css";
+import styles from "./style.module.css";
 import Image from "next/image";
 const arr = [
   {
@@ -33,76 +33,79 @@ const arr = [
 ];
 const Page = () => {
   return (
-    <div className="delivery">
+    <div className={styles.delivery}>
       <Banner text="Доставка" />
       <Navbar />
       <ResponsiveCatalog />
-      <main>
-        <p className="text">Мы предлогаем вам несколько вариантов доставки:</p>
-        <div className="cards">
-          <div className="card">
-            <h3>01</h3>
-            <p>
+      <main className={styles.main}>
+        <p className={styles.text}>
+          Мы предлогаем вам несколько вариантов доставки:
+        </p>
+        <div className={styles.cards}>
+          <div className={styles.card}>
+            <h3 className={styles.cardTitle}>01</h3>
+            <p className={styles.cardText}>
               По Санкт-Петербургу нашим курьером (в этот же день или по
               согласованию, бесплатно от 10 т.р.)
             </p>
           </div>
-          <div className="card">
-            <h3>02</h3>
-            <p>
+          <div className={styles.card}>
+            <h3 className={styles.cardTitle}>02</h3>
+            <p className={styles.cardText}>
               Самовывоз из магазина (в этот же день или по согласованию,
               бесплатно)
             </p>
           </div>
-          <div className="card">
-            <h3>03</h3>
-            <p>
+          <div className={styles.card}>
+            <h3 className={styles.cardTitle}>03</h3>
+            <p className={styles.cardText}>
               Курьерские службы доставки по России (от 1-х суток и более, по
               тарифам службы доставки)
             </p>
           </div>
         </div>
         <div>
-          <h2 className="title">
+          <h2 className={styles.title}>
             Доставка по Санкт-Петербургу курьером галереи
           </h2>
-          <p className="text">
+          <p className={styles.text}>
             Вы можете заказать доставку товара курьером по указанному адресу.
             После оформления заказа наш администратор свяжется с вами для
             уточнения адреса и выбора удобного времени доставки.
           </p>
-          <p className="text">
+          <p className={styles.text}>
             При получении товара вы вскрываете упаковку при курьере и проверяете
             её на целостность и соответствие комплектации.{" "}
           </p>
-          <p className="text">
-            <b>Бесплатная доставка при заказе</b> <span>от 10000 рублей.</span>
+          <p className={styles.text}>
+            <b>Бесплатная доставка при заказе</b>{" "}
+            <span className={styles.span}>от 10000 рублей.</span>
           </p>
         </div>
         <div>
-          <h2 className="title">Самовывоз из магазина</h2>
-          <p className="text">
+          <h2 className={styles.title}>Самовывоз из магазина</h2>
+          <p className={styles.text}>
             Вы можете забрать товар у нас в галерее по адресу Санкт-петербург,
             Ленинский просп. 151, заранее предупредив администратора. 
           </p>
         </div>
         <div>
-          <h2 className="title">Преимущества</h2>
-          <p className="text">
+          <h2 className={styles.title}>Преимущества</h2>
+          <p className={styles.text}>
             Мы предоставляет высококачественные услуги по доставке, обеспечивая
             клиентам множество преимуществ:
           </p>
-          <div className="whyContent">
+          <div className={styles.whyContent}>
             {arr.map((item) => (
-              <div className={"whyItem"} key={item.id}>
+              <div className={styles.whyItem} key={item.id}>
                 <Image
                   src={item.image}
                   alt="advantages"
                   width={50}
                   height={50}
                 />
-                <h4 className={"cardTitle"}>{item.title}</h4>
-                <p className={"itemText"}>{item.text}</p>
+                <h4 className={styles.whyCardTitle}>{item.title}</h4>
+                <p className={styles.itemText}>{item.text}</p>
               </div>
             ))}
           </div>

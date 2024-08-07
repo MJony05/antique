@@ -1,21 +1,35 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "./catalog.module.css";
 import Link from "next/link";
 import Image from "next/image";
-async function getData() {
-  const res = await fetch(process.env.NEXT_PUBLIC_API + "category");
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+export default function Catalog() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  return res.json();
-}
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch(process.env.NEXT_PUBLIC_API + "category");
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const result = await res.json();
+        setData(result);
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
 
-export default async function Catalog() {
-  const data = await getData();
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
     <div className={styles.catalog}>
       <h2 className={styles.catalogTitle}>Каталог</h2>

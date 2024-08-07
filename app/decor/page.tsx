@@ -6,7 +6,6 @@ import "./decor.css";
 import Image from "next/image";
 import Title from "@/components/details/Title";
 import ContactForm from "@/components/ContactForm";
-import Footer from "@/components/Footer";
 import Link from "next/link";
 const arr = [
   {

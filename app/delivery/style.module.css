@@ -3,17 +3,23 @@
   flex-direction: column;
   gap: 10px;
 }
-main {
+.main {
   background-color: white;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
 }
+.cardText {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
 .text {
   font-size: 16px;
   margin: 10px 0 0 0;
 }
-.text span {
+.text .span {
   color: #e3c05c;
   font-weight: 500;
 }
@@ -37,7 +43,7 @@ main {
   box-shadow: 0 5px 25px #00000018;
   height: 185px;
 }
-.card h3 {
+.cardTitle {
   font-size: 48px;
   font-weight: 700;
   line-height: 57.6px;
@@ -67,11 +73,12 @@ main {
 .whyContent .whyItem:hover {
   box-shadow: 0px 5px 25px #0000001a;
 }
-.whyContent .cardTitle {
+.whyContent .whyCardTitle {
   height: 100%;
   display: flex;
   align-items: center;
   font-weight: 500;
+  font-size: 16px;
 }
 .whyContent .itemText {
   grid-column: 1/3;
@@ -88,7 +95,7 @@ main {
 }
 
 @media (max-width: 768px) {
-  main {
+  .main {
     padding: 20px 10px;
   }
   .cards {
