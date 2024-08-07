@@ -2,15 +2,8 @@ import React from "react";
 import styles from "./card.module.css";
 import Image from "next/image";
 import Link from "next/link";
-interface CardProps {
-  id: string;
-  images: { image: string }[];
-  orginal_title: string;
-  category: { name: string };
-  price: number;
-  name: string;
-}
-const Card = ({ data }: { data: CardProps }) => {
+
+const Card = ({ data }: { data: any }) => {
   const handleAddToCart = () => {
     console.log(data);
     // Get existing cart items from local storage
@@ -18,7 +11,7 @@ const Card = ({ data }: { data: CardProps }) => {
 
     // Find if the item already exists in the cart
     const itemIndex = existingCart.findIndex(
-      (item: CardProps) => item.id === data.id
+      (item: any) => item.id === data.id
     );
 
     // If item exists, increment the amount, otherwise add the item with amount 1

@@ -1,26 +1,30 @@
-import Banner from "@/components/Banner";
-import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
-import Navbar from "@/components/Navbar";
 import React from "react";
 import "./card.css";
 import ContactForm from "@/components/ContactForm";
-import Image from "next/image";
-import CardContent from "@/components/card/cardContent";
-import Similars from "@/components/card/Similars";
-const Page = async ({ params }: any) => {
-  const { productId } = params;
-  const response = await fetch(
-    `http://31.128.44.221:8000/product/${productId}`
-  );
-  const data = await response.json();
+import PageClient from "./page.client";
 
+export async function generateStaticParams() {
+  try {
+    // Fetch all product items to get their ids
+    const res = await fetch(process.env.NEXT_PUBLIC_API + "product");
+    const data = await res.json(); // Ensure the path to results is correct
+    const products = data.results;
+
+    // Return an array of objects with id property
+    return products.map((item: any) => ({
+      productId: item.id.toString(), // Convert id to string if it's not
+    }));
+  } catch (error) {
+    console.error("Error fetching product ids:", error);
+    return []; // Return an empty array in case of an error
+  }
+}
+
+const Page = ({ params }: any) => {
+  const { productId } = params;
   return (
     <div className="card">
-      {data.serializer && <Banner text={data.serializer.name} />}
-
-      <Navbar />
-      <ResponsiveCatalog />
-      <CardContent productId={productId} />
+      <PageClient productId={productId} />
       <ContactForm />
     </div>
   );

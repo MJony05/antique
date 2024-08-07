@@ -86,7 +86,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/wood1.png"
+                src="/decor/wood1-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -95,7 +95,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/wood2.png"
+                src="/decor/wood2-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -104,7 +104,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/wood3.png"
+                src="/decor/wood3-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -113,7 +113,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/wood4.png"
+                src="/decor/wood4-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -122,7 +122,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/wood5.png"
+                src="/decor/wood5-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -131,7 +131,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/wood6.png"
+                src="/decor/wood6-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -140,7 +140,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/wood7.png"
+                src="/decor/wood7-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -149,7 +149,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/wood8.png"
+                src="/decor/wood8-min.png"
                 alt="decor"
                 width={500}
                 height={300}

@@ -94,7 +94,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/plastic1.png"
+                src="/decor/plastic1-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -103,7 +103,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/plastic2.png"
+                src="/decor/plastic2-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -112,7 +112,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/plastic3.png"
+                src="/decor/plastic3-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -121,7 +121,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/plastic4.png"
+                src="/decor/plastic4-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -130,7 +130,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/plastic5.png"
+                src="/decor/plastic5-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -139,7 +139,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/plastic6.png"
+                src="/decor/plastic6-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -148,7 +148,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/plastic7.png"
+                src="/decor/plastic7-min.png"
                 alt="decor"
                 width={500}
                 height={300}
@@ -157,7 +157,7 @@ const page = () => {
             <div className="imageContainer">
               <Image
                 className="image"
-                src="/decor/plastic8.png"
+                src="/decor/plastic8-min.png"
                 alt="decor"
                 width={500}
                 height={300}

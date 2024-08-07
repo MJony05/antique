@@ -74,14 +74,14 @@ const page = () => {
               <div className="exampleImageGroup">
                 <Image
                   className="exampleImage"
-                  src={"/decor/image1.png"}
+                  src={"/decor/image1-min.png"}
                   alt="example-1"
                   width={500}
                   height={500}
                 />
                 <Image
                   className="exampleImage"
-                  src={"/decor/image2.png"}
+                  src={"/decor/image2-min.png"}
                   alt="example-1"
                   width={500}
                   height={500}
@@ -89,7 +89,7 @@ const page = () => {
               </div>
               <Image
                 className="exampleImage"
-                src={"/decor/image3.png"}
+                src={"/decor/image3-min.png"}
                 alt="example-1"
                 width={1000}
                 height={1000}
@@ -98,7 +98,7 @@ const page = () => {
             <div className="exampleImages">
               <Image
                 className="exampleImage"
-                src={"/decor/image6.png"}
+                src={"/decor/image6-min.png"}
                 alt="example-1"
                 width={1000}
                 height={1000}
@@ -106,14 +106,14 @@ const page = () => {
               <div className="exampleImageGroup">
                 <Image
                   className="exampleImage"
-                  src={"/decor/image4.png"}
+                  src={"/decor/image4-min.png"}
                   alt="example-1"
                   width={500}
                   height={500}
                 />
                 <Image
                   className="exampleImage"
-                  src={"/decor/image5.png"}
+                  src={"/decor/image5-min.png"}
                   alt="example-1"
                   width={500}
                   height={500}
@@ -124,14 +124,14 @@ const page = () => {
               <div className="exampleImageGroup">
                 <Image
                   className="exampleImage"
-                  src={"/decor/image7.png"}
+                  src={"/decor/image7-min.png"}
                   alt="example-1"
                   width={500}
                   height={500}
                 />
                 <Image
                   className="exampleImage"
-                  src={"/decor/image8.png"}
+                  src={"/decor/image8-min.png"}
                   alt="example-1"
                   width={500}
                   height={500}
@@ -139,7 +139,7 @@ const page = () => {
               </div>
               <Image
                 className="exampleImage"
-                src={"/decor/image9.png"}
+                src={"/decor/image9-min.png"}
                 alt="example-1"
                 width={1000}
                 height={1000}
