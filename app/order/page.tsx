@@ -76,6 +76,20 @@ const Page = () => {
       if (response.ok) {
         // Handle success
         console.log("Order submitted successfully");
+        localStorage.removeItem("cart");
+
+        setFormData({
+          name: "",
+          surname: "",
+          company: "",
+          country: 0,
+          address: "",
+          city: "",
+          region: "",
+          postalCode: "",
+          phone: "",
+          email: "",
+        });
       } else {
         // Handle error
         console.error("Failed to submit order");

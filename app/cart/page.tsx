@@ -7,6 +7,7 @@ import "./card.css";
 import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
 import Button from "@/components/details/button";
+import Link from "next/link";
 const Page = () => {
   const [cart, setCart] = useState([]);
   useEffect(() => {
@@ -57,11 +58,13 @@ const Page = () => {
                 (acc, item: { price: number; amount: number }) =>
                   acc + item.price * item.amount,
                 0
-              )}
-              13141  ₽
+              )}{" "}
+              ₽
             </h3>
           </div>
-          <Button text="Оформить заказ" />
+          <Link className="orderButton" href="/order">
+            <Button text="Оформить заказ" />
+          </Link>
         </div>
       </main>
       <ContactForm />
