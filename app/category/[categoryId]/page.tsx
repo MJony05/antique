@@ -9,7 +9,6 @@ const CategoryPage = async ({ params }: any) => {
   const { categoryId } = params;
   try {
     const categoriesRes = await fetch(process.env.NEXT_PUBLIC_API + "category");
-
     if (!categoriesRes.ok) {
       throw new Error("Failed to fetch categories");
     }

@@ -37,7 +37,7 @@
   align-items: center;
 }
 .cardPrice {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 800;
   color: #e3c05c;
 }
@@ -50,10 +50,10 @@
   border: none;
   color: #9b9b9b;
   cursor: pointer;
+  text-decoration: none;
 }
 .linkButton:hover {
   transform: scaleX(1.1);
-  /* gap: 0.6rem; */
 }
 .addButton {
   width: 100%;

@@ -5,13 +5,14 @@ import Link from "next/link";
 interface CardProps {
   id: string;
   images: { image: string }[];
-  title: string;
+  orginal_title: string;
   category: { name: string };
   price: number;
+  name: string;
 }
 const Card = ({ data }: { data: CardProps }) => {
   return (
-    <Link href={`/product/${data.id}`} className={styles.card}>
+    <div className={styles.card}>
       <Image
         className={styles.cardImage}
         src={data?.images[0]?.image || ""}
@@ -22,12 +23,12 @@ const Card = ({ data }: { data: CardProps }) => {
       <div className={styles.cardContent}>
         <div className={styles.cardInfo}>
           <p className={styles.cardCategory}>{data.category.name}</p>
-          <h3 className={styles.cardTitle}>{data.title}</h3>
+          <h3 className={styles.cardTitle}>{data.name}</h3>
         </div>
         <div className={styles.cardAction}>
           <div className={styles.cardLine}>
             <p className={styles.cardPrice}>{data.price} руб</p>
-            <button className={styles.linkButton}>
+            <Link href={`/product/${data.id}`} className={styles.linkButton}>
               Смотреть
               <Image
                 src={"/grey-arrow.svg"}
@@ -35,12 +36,12 @@ const Card = ({ data }: { data: CardProps }) => {
                 width={23}
                 height={20}
               />
-            </button>
+            </Link>
           </div>
           <button className={styles.addButton}>В корзину</button>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

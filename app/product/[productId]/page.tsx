@@ -7,11 +7,17 @@ import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
 import CardContent from "@/components/card/cardContent";
 import Similars from "@/components/card/Similars";
-const Page = ({ params }: any) => {
+const Page = async ({ params }: any) => {
   const { productId } = params;
+  const response = await fetch(
+    `http://31.128.44.221:8000/product/${productId}`
+  );
+  const data = await response.json();
+
   return (
     <div className="card">
-      <Banner text="Санкт-Петербург в конце своего первого столетия. 1825 г. Комплектный экземпляр" />
+      {data.serializer && <Banner text={data.serializer.name} />}
+
       <Navbar />
       <ResponsiveCatalog />
       <CardContent productId={productId} />

@@ -7,6 +7,7 @@ import Image from "next/image";
 import Title from "@/components/details/Title";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 const arr = [
   {
     id: "01",
@@ -35,7 +36,7 @@ const page = () => {
         <div className="types">
           <h3 className="title">Выбор багета</h3>
           <div className="typeCards">
-            <div className="typeCard">
+            <Link href="/decor/wood" className="typeCard">
               <p>Деревянный багет</p>
               <Image
                 src={"/type-1.png"}
@@ -44,8 +45,8 @@ const page = () => {
                 width={390}
                 height={380}
               />
-            </div>
-            <div className="typeCard">
+            </Link>
+            <Link href="/decor/plastic" className="typeCard">
               <p>Пластиковый багет</p>
               <Image
                 src={"/type-2.png"}
@@ -54,8 +55,8 @@ const page = () => {
                 width={390}
                 height={380}
               />
-            </div>
-            <div className="typeCard">
+            </Link>
+            <Link href="/decor/aluminum" className="typeCard">
               <p>Алюминевый багет</p>
               <Image
                 className="typeCardImage"
@@ -64,7 +65,7 @@ const page = () => {
                 width={390}
                 height={380}
               />
-            </div>
+            </Link>
           </div>
         </div>
         <div className="examples">
