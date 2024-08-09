@@ -1,6 +1,7 @@
 .navbar {
   width: 100%;
   background-color: white;
+  position: relative;
 }
 .navContent {
   display: flex;
@@ -9,6 +10,7 @@
   width: 90%;
   margin: 0 auto;
   padding: 20px 0;
+  position: relative;
 }
 .navLinks {
   display: flex;
@@ -75,6 +77,37 @@
   text-align: left;
   text-transform: capitalize;
   color: #00000099;
+}
+.searchResults {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  background-color: white;
+
+  z-index: 100;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.searchResultItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  max-width: 300px;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 5px 25px #0000000b;
+}
+.searchResultItem:hover {
+  color: #e3c05c;
+}
+.searchResultImage {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 @media (max-width: 1200px) {
   .navLinks {

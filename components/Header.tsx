@@ -1,14 +1,49 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import Button from "./details/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
 const Header = () => {
-  const [open, setOpen] = React.useState(false);
-  const [open2, setOpen2] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const router = useRouter();
+
+  // Function to handle search input changes
+  const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // Function to fetch search results from API
+  const fetchSearchResults = async (query: string) => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API}product?name=${query}`
+      );
+      const results = await response.json();
+      setSearchResults(results.results);
+    } catch (error) {
+      console.error("Error fetching search results:", error);
+    }
+  };
+
+  // Effect to fetch search results when search query changes
+  useEffect(() => {
+    if (searchQuery.length > 0) {
+      const debounceTimeout = setTimeout(() => {
+        fetchSearchResults(searchQuery);
+      }, 300); // Debounce time in ms
+
+      return () => clearTimeout(debounceTimeout);
+    } else {
+      setSearchResults([]);
+    }
+  }, [searchQuery]);
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navLeft}>
@@ -17,6 +52,8 @@ const Header = () => {
             className={styles.searchInput}
             type="text"
             placeholder="Поиск по каталогу"
+            value={searchQuery}
+            onChange={handleSearchInput}
           />
           <button className={styles.searchButton}>
             <Image
@@ -151,6 +188,30 @@ const Header = () => {
           />
         </div>
       </div>
+      {searchQuery && (
+        <div className={styles.searchResults}>
+          {searchResults.length > 0 ? (
+            searchResults.map((result: any) => (
+              <Link
+                href={`/product/${result.id}`}
+                key={result.id}
+                className={styles.searchResultItem}
+              >
+                <Image
+                  width={100}
+                  height={100}
+                  src={result.images[0].image}
+                  alt={result.name}
+                  className={styles.searchResultImage}
+                />
+                <p>{result.name}</p>
+              </Link>
+            ))
+          ) : (
+            <div className={styles.searchResultItem}>No results found</div>
+          )}
+        </div>
+      )}
     </nav>
   );
 };

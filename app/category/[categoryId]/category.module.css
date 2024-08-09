@@ -22,8 +22,9 @@
   font-weight: 400;
   transition: background 0.1s ease;
   min-width: max-content;
+  cursor: pointer;
 }
-.ancientsFilterItem:hover {
+.active {
   background: linear-gradient(
     90deg,
     #f0c74e -35.37%,

@@ -47,7 +47,7 @@ export default function Catalog() {
                   <p className={styles.catalogItem} key={subCategory.id}>
                     <Link
                       className={styles.catalogLink}
-                      href={`category/${category.id}/sub/${subCategory.id}`}
+                      href={`category/${category.id}`}
                     >
                       - {subCategory.name}
                     </Link>

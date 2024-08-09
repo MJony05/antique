@@ -79,6 +79,39 @@
   position: absolute;
   right: 0;
 }
+.searchResults {
+  position: absolute;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  background-color: white;
+  left: 0;
+  top: 70px;
+  z-index: 100;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.searchResultItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  max-width: 300px;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 5px 25px #0000000b;
+}
+.searchResultItem:hover {
+  color: #e3c05c;
+}
+.searchResultImage {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
 @media screen and (max-width: 700px) {
   .cart {
     width: 25px;
