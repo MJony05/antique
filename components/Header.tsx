@@ -13,12 +13,9 @@ const Header = () => {
   const [searchResults, setSearchResults] = useState([]);
   const router = useRouter();
 
-  // Function to handle search input changes
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
-
-  // Function to fetch search results from API
   const fetchSearchResults = async (query: string) => {
     try {
       const response = await fetch(
@@ -31,12 +28,11 @@ const Header = () => {
     }
   };
 
-  // Effect to fetch search results when search query changes
   useEffect(() => {
     if (searchQuery.length > 0) {
       const debounceTimeout = setTimeout(() => {
         fetchSearchResults(searchQuery);
-      }, 300); // Debounce time in ms
+      }, 300);
 
       return () => clearTimeout(debounceTimeout);
     } else {
@@ -96,19 +92,22 @@ const Header = () => {
         </div>
       </div>
       <div className={styles.navRight}>
-        <div className={styles.navRightItem}>
+        <Link href={"#contact"} className={styles.navRightItem}>
           <Button text="Заказать звонок" />
+        </Link>
+        <div>
+          <Image
+            onClick={() => {
+              router.push("/cart");
+            }}
+            className={styles.cart}
+            src="/cart-icon.svg"
+            alt="cart"
+            width={44}
+            height={44}
+          />
+          {/* <span>{productsNumber}</span> */}
         </div>
-        <Image
-          onClick={() => {
-            router.push("/cart");
-          }}
-          className={styles.cart}
-          src="/cart-icon.svg"
-          alt="cart"
-          width={44}
-          height={44}
-        />
         <div onClick={() => setOpen(!open)} className={styles.burger}>
           <Image src="/burger.svg" alt="burger" width={48} height={48} />
         </div>

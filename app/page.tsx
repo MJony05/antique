@@ -9,6 +9,8 @@ import Advantages from "@/components/home/Advantages";
 import News from "@/components/home/News";
 import Image from "next/image";
 import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
+// import "react-toastify/dist/ReactToastify.css";
+
 export default async function Home() {
   return (
     <>

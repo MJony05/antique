@@ -91,7 +91,7 @@ const arr3 = [
 const page = () => {
   return (
     <div className="decorContainer">
-      <Banner text="алюминевый багет" />
+      <Banner text="алюминиевый багет" />
       <ResponsiveCatalog />
       <Navbar />
       <main className="mainContent">
@@ -210,7 +210,7 @@ const page = () => {
           </div>
         </div>
         <div className="why">
-          <Title text="Примеры использования деревянного багета" size={36} />
+          <Title text="Примеры использования алюминиевого багета" size={36} />
           <div className="whyContent whyContent2">
             {arr3.map((item) => (
               <div className={"whyItem"} key={item.id}>

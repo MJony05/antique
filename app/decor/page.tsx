@@ -56,7 +56,7 @@ const page = () => {
               />
             </Link>
             <Link href="/decor/aluminum" className="typeCard">
-              <p>Алюминевый багет</p>
+              <p>Алюминиевый багет</p>
               <Image
                 className="typeCardImage"
                 src={"/type-3.png"}

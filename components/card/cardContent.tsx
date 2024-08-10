@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import "./cardContent.css";
 import Similars from "./Similars";
+import { toast } from "react-toastify";
 
 const CardContent = ({ productId }: any) => {
   const [productData, setProductData] = useState<any>(null);
@@ -10,8 +11,6 @@ const CardContent = ({ productId }: any) => {
   const [error, setError] = useState(null);
   const [similars, setSimilars] = useState([]);
   const [amount, setAmount] = useState(1);
-
-  console.log(productData);
 
   useEffect(() => {
     const fetchProductData = async () => {
@@ -46,7 +45,7 @@ const CardContent = ({ productId }: any) => {
     } else {
       cart.push({ ...productData, amount });
     }
-
+    toast.success("Товар добавлен в корзину");
     localStorage.setItem("cart", JSON.stringify(cart));
   };
 

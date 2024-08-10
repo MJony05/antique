@@ -1,8 +1,11 @@
+"use client";
 import React from "react";
 import Title from "../details/Title";
 import styles from "./advantages.module.css";
 import Image from "next/image";
 import Button from "../details/button";
+import { useRouter } from "next/navigation";
+
 const arr = [
   {
     id: "1",
@@ -42,6 +45,7 @@ const arr = [
   },
 ];
 const Advantages = () => {
+  const router = useRouter();
   return (
     <div className={styles.advantages}>
       <Title text="Наши преимущества" size={36} />
@@ -64,7 +68,12 @@ const Advantages = () => {
             уникальные произведения искусства, но и ряд преимуществ, которые
             делают наш магазин особенным.
           </p>
-          <Button text="Подробнее о нас" />
+          <Button
+            onClick={() => {
+              router.push("/about");
+            }}
+            text="Подробнее о нас"
+          />
         </div>
       </div>
     </div>

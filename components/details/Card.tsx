@@ -2,13 +2,14 @@ import React from "react";
 import styles from "./card.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const Card = ({ data }: { data: any }) => {
-  const handleAddToCart = () => {
-    console.log(data);
+  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     // Get existing cart items from local storage
     const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
-
+    toast.success("Товар добавлен в корзину");
     // Find if the item already exists in the cart
     const itemIndex = existingCart.findIndex(
       (item: any) => item.id === data.id
@@ -25,7 +26,7 @@ const Card = ({ data }: { data: any }) => {
     localStorage.setItem("cart", JSON.stringify(existingCart));
   };
   return (
-    <div className={styles.card}>
+    <Link href={`/product/${data.id}`} className={styles.card}>
       <Image
         className={styles.cardImage}
         src={data?.images[0]?.image || ""}
@@ -41,7 +42,7 @@ const Card = ({ data }: { data: any }) => {
         <div className={styles.cardAction}>
           <div className={styles.cardLine}>
             <p className={styles.cardPrice}>{data.price} руб</p>
-            <Link href={`/product/${data.id}`} className={styles.linkButton}>
+            <p className={styles.linkButton}>
               Смотреть
               <Image
                 src={"/grey-arrow.svg"}
@@ -49,14 +50,14 @@ const Card = ({ data }: { data: any }) => {
                 width={23}
                 height={20}
               />
-            </Link>
+            </p>
           </div>
           <button onClick={handleAddToCart} className={styles.addButton}>
             В корзину
           </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

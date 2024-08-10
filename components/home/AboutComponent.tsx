@@ -4,6 +4,7 @@ import styles from "./aboutComponent.module.css";
 import Image from "next/image";
 import Button from "../details/button";
 import Title from "../details/Title";
+import { useRouter } from "next/navigation";
 
 const AboutComponent = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -13,6 +14,7 @@ const AboutComponent = () => {
     { src: "/about-2.png", alt: "about2", width: 174, height: 357 },
     { src: "/about-3.png", alt: "about3", width: 174, height: 309 },
   ];
+  const router = useRouter();
 
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
@@ -56,7 +58,12 @@ const AboutComponent = () => {
             ручной работы – у нас вы найдете разнообразие стилей и техник,
             способных украсить любой интерьер и стать источником вдохновения.
           </p>
-          <Button text={"Подробнее о нас"} />
+          <Button
+            onClick={() => {
+              router.push("/about");
+            }}
+            text={"Подробнее о нас"}
+          />
         </div>
         <div className={styles.pagination2}>
           <button onClick={prevSlide} className={styles.button}>

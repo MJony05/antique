@@ -3,7 +3,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import localFont from "next/font/local";
 import Footer from "@/components/Footer";
-
+import "../node_modules/react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 // Font files can be colocated inside of `app`
 const myFont = localFont({
   src: "../Assets/TildaSans/TildaSans-VF.woff2",
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={myFont.className}>
       <body>
+        <ToastContainer progressClassName={"toast"} />
         <div className="container">
           <Header />
           {children}

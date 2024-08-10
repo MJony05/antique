@@ -50,7 +50,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className={styles.contact}>
+    <div className={styles.contact} id="contact">
       <h1 className={styles.contactTitle}>Обратная связь</h1>
       <Image
         className={styles.contactImage}

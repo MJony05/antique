@@ -52,6 +52,9 @@
   cursor: pointer;
   text-decoration: none;
 }
+.cardTitle {
+  color: black;
+}
 .linkButton:hover {
   transform: scaleX(1.1);
 }
