@@ -44,9 +44,13 @@
 .product_price {
   font-size: 28px;
   font-weight: 700;
-  line-height: 48px;
   text-align: left;
-  margin-bottom: 30px;
+}
+.product_right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 .sum {
   display: flex;
@@ -73,6 +77,24 @@
   text-align: left;
   color: #b9802b;
 }
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.amount-editor {
+  display: flex;
+  align-items: center;
+  width: 145px;
+  border: 1px solid #e3c05c;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+.amount-editor button {
+  padding: 10px 20px;
+  font-size: 20px;
+  color: black !important;
+}
 @media screen and (max-width: 1000px) {
   .product_left {
     gap: 10px;
@@ -89,6 +111,7 @@
     object-fit: cover;
   }
 }
+
 @media screen and (max-width: 768px) {
   .cart_product {
     flex-direction: column;

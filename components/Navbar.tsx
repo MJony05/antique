@@ -57,7 +57,7 @@ const Navbar = () => {
           <div className={styles.navButton}>
             <p className={styles.navLink} onClick={() => setOpen(!open)}>
               Услуги{" "}
-              <Image src="/Vector.svg" alt="arrow" width={13} height={7} />
+              <Image src="/vector.svg" alt="arrow" width={13} height={7} />
             </p>
             {open && (
               <div className={styles.navSubLinks}>

@@ -1,10 +1,17 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import styles from "./banner.module.css";
+import { useRouter } from "next/navigation";
 
 const Banner = ({ text }: { text: string }) => {
+  const router = useRouter();
   return (
-    <div className={styles.banner}>
+    <div
+      style={{ cursor: "pointer" }}
+      className={styles.banner}
+      onClick={() => router.push("/")}
+    >
       <Image
         className={styles.bannerImage}
         src={"/main-logo.png"}

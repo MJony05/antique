@@ -74,6 +74,6 @@
 }
 .addButton:hover {
   background-color: #e3c05c;
-  color: white;
+  color: white !important;
   cursor: pointer;
 }

@@ -72,7 +72,7 @@ const News = () => {
           <div className={styles.newsItemImage}>
             <Image
               className={styles.newsItemImagee}
-              src="/news1.png"
+              src="/news3.png"
               alt="news-image"
               width={600}
               height={320}

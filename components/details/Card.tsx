@@ -52,7 +52,11 @@ const Card = ({ data }: { data: any }) => {
               />
             </p>
           </div>
-          <button onClick={handleAddToCart} className={styles.addButton}>
+          <button
+            style={{ color: "#000" }}
+            onClick={handleAddToCart}
+            className={styles.addButton}
+          >
             В корзину
           </button>
         </div>

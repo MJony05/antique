@@ -131,7 +131,7 @@ const Header = () => {
                 setOpen(false);
               }}
               className={styles.navLink}
-              href="/contact"
+              href="/contacts"
             >
               Контакты
             </Link>
@@ -141,7 +141,7 @@ const Header = () => {
                 setOpen(false);
               }}
               className={styles.navLink}
-              href="/baguette"
+              href="/decor"
             >
               Оформление в багет
             </Link>
@@ -158,16 +158,16 @@ const Header = () => {
                   }}
                   className={styles.navSubLinks}
                 >
-                  <Link className={styles.navSubLink} href="/about">
+                  <Link className={styles.navSubLink} href="/primerka">
                     Примерка
                   </Link>
-                  <Link className={styles.navSubLink} href="#">
+                  <Link className={styles.navSubLink} href="/payment">
                     Оплата
                   </Link>
-                  <Link className={styles.navSubLink} href="#">
+                  <Link className={styles.navSubLink} href="/delivery">
                     Доставка
                   </Link>
-                  <Link className={styles.navSubLink} href="#">
+                  <Link className={styles.navSubLink} href="/upakovka">
                     Упаковка
                   </Link>
                 </div>

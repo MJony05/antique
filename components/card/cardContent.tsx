@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import "./cardContent.css";
 import Similars from "./Similars";
 import { toast } from "react-toastify";
+import Modal from "@/components/Modal"; // Import the modal component
 
 const CardContent = ({ productId }: any) => {
   const [productData, setProductData] = useState<any>(null);
@@ -11,12 +12,14 @@ const CardContent = ({ productId }: any) => {
   const [error, setError] = useState(null);
   const [similars, setSimilars] = useState([]);
   const [amount, setAmount] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImageSrc, setModalImageSrc] = useState("");
 
   useEffect(() => {
     const fetchProductData = async () => {
       try {
         const response = await fetch(
-          `http://31.128.44.221:8000/product/${productId}`
+          `${process.env.NEXT_PUBLIC_API}product/${productId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch product data");
@@ -52,6 +55,15 @@ const CardContent = ({ productId }: any) => {
   const incrementAmount = () => setAmount(amount + 1);
   const decrementAmount = () => setAmount(amount > 1 ? amount - 1 : 1);
 
+  const openModal = (src: string) => {
+    setModalImageSrc(src);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -67,6 +79,11 @@ const CardContent = ({ productId }: any) => {
               alt="card"
               width={610}
               height={712}
+              onClick={() =>
+                openModal(
+                  productData.images[0].image || "/example-product2.png"
+                )
+              } // Add onClick to open modal
             />
             <div className="cardInfo">
               <div className="cardTop">
@@ -116,6 +133,7 @@ const CardContent = ({ productId }: any) => {
                     alt="card"
                     width={190}
                     height={190}
+                    onClick={() => openModal(image.image)} // Add onClick to open modal
                   />
                 ))}
               </div>
@@ -127,6 +145,11 @@ const CardContent = ({ productId }: any) => {
         </>
       )}
       {similars.length > 0 && <Similars cards={similars} />}
+      <Modal
+        isOpen={isModalOpen}
+        imageSrc={modalImageSrc}
+        onClose={closeModal}
+      />
     </main>
   );
 };

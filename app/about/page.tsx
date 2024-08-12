@@ -83,7 +83,7 @@ const page = () => {
             />
             <Image
               className={styles.aboutImage2}
-              src="/about/about2.png"
+              src="/about/about3.png"
               alt="about"
               width={500}
               height={500}

@@ -10,10 +10,11 @@ const AboutComponent = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const images = [
-    { src: "/about-1.png", alt: "about1", width: 283, height: 368 },
-    { src: "/about-2.png", alt: "about2", width: 174, height: 357 },
-    { src: "/about-3.png", alt: "about3", width: 174, height: 309 },
+    { src: "/about-1.png", alt: "about1" },
+    { src: "/about-2.png", alt: "about2" },
+    { src: "/about-3.png", alt: "about3" },
   ];
+
   const router = useRouter();
 
   const nextSlide = () => {
@@ -24,6 +25,13 @@ const AboutComponent = () => {
     setCurrentSlide((prevSlide) =>
       prevSlide === 0 ? images.length - 1 : prevSlide - 1
     );
+  };
+
+  const getSlideClass = (index: number) => {
+    const diff = (index - currentSlide + images.length) % images.length;
+    if (diff === 0) return styles.big;
+    if (diff === 1) return styles.medium;
+    return styles.small;
   };
 
   return (
@@ -84,16 +92,13 @@ const AboutComponent = () => {
             {images.map((image, index) => (
               <div
                 key={index}
-                className={`${styles.slide} ${
-                  index === currentSlide ? styles.active : ""
-                }`}
+                className={`${styles.slide} ${getSlideClass(index)}`}
               >
                 <Image
                   className={styles.image}
                   src={image.src}
                   alt={image.alt}
-                  width={image.width}
-                  height={image.height}
+                  layout="fill"
                 />
               </div>
             ))}
