@@ -93,6 +93,23 @@
   flex-wrap: wrap;
   gap: 20px;
 }
+.cartIcon {
+  position: relative;
+}
+.indicator {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #e3c05c;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+}
 .searchResultItem {
   display: flex;
   align-items: center;

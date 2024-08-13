@@ -12,7 +12,7 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const router = useRouter();
-
+  const [number, setNumber] = useState(0);
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
@@ -27,7 +27,20 @@ const Header = () => {
       console.error("Error fetching search results:", error);
     }
   };
-
+  useEffect(() => {
+    const checkSavedElons = () => {
+      const products = JSON.parse(localStorage.getItem("cart") || "[]");
+      console.log(products);
+      const sum = products.reduce(
+        (acc: number, item: { amount: number }) => acc + item.amount,
+        0
+      );
+      setNumber(sum);
+    };
+    checkSavedElons();
+    const intervalId = setInterval(checkSavedElons, 100);
+    return () => clearInterval(intervalId);
+  }, []);
   useEffect(() => {
     if (searchQuery.length > 0) {
       const debounceTimeout = setTimeout(() => {
@@ -95,7 +108,7 @@ const Header = () => {
         <Link href={"#contact"} className={styles.navRightItem}>
           <Button text="Заказать звонок" />
         </Link>
-        <div>
+        <div className={styles.cartIcon}>
           <Image
             onClick={() => {
               router.push("/cart");
@@ -106,7 +119,7 @@ const Header = () => {
             width={44}
             height={44}
           />
-          {/* <span>{productsNumber}</span> */}
+          <span className={styles.indicator}>{number}</span>
         </div>
         <div onClick={() => setOpen(!open)} className={styles.burger}>
           <Image src="/burger.svg" alt="burger" width={48} height={48} />

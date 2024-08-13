@@ -8,13 +8,11 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
   // Function to handle search input changes
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 
-  // Function to fetch search results from API
   const fetchSearchResults = async (query: string) => {
     try {
       const response = await fetch(
