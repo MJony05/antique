@@ -7,7 +7,7 @@ const Footer = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -25,7 +25,7 @@ const Footer = () => {
     }
     fetchData();
   }, []);
-
+  console.log(data);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -69,13 +69,49 @@ const Footer = () => {
         <div className={styles.footerContent}>
           <h3 className={styles.footerHeader}>Каталог</h3>
           {data.map((item: any) => (
-            <Link
-              key={item.id}
-              className={styles.footerLink}
-              href={`/category/${item.id}`}
-            >
-              {item.name}
-            </Link>
+            <div key={item.id}>
+              <div className={styles.footerLinkCon}>
+                <Link
+                  key={item.id}
+                  className={styles.footerLink}
+                  href={`/category/${item.id}`}
+                >
+                  {item.name}{" "}
+                </Link>
+                {item.sub_categor.length > 0 && (
+                  <p
+                    style={{
+                      cursor: "pointer",
+                      fontSize: "32px",
+                      padding: "",
+                      lineHeight: "0.7",
+                      color: "grey",
+                    }}
+                    onClick={() => setVisible(!visible)}
+                  >
+                    ▾
+                  </p>
+                )}
+              </div>
+
+              <div
+                className={styles.footerSubLinks}
+                style={{
+                  display: visible ? "flex" : "none",
+                }}
+              >
+                {item.sub_categor.length > 0 &&
+                  item.sub_categor.map((sub: any) => (
+                    <Link
+                      className={styles.footerSubLink}
+                      href={`/category/${sub.id}`}
+                      key={sub.id}
+                    >
+                      {sub.name}
+                    </Link>
+                  ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>

@@ -30,7 +30,7 @@ const Header = () => {
   useEffect(() => {
     const checkSavedElons = () => {
       const products = JSON.parse(localStorage.getItem("cart") || "[]");
-      console.log(products);
+
       const sum = products.reduce(
         (acc: number, item: { amount: number }) => acc + item.amount,
         0
@@ -38,7 +38,7 @@ const Header = () => {
       setNumber(sum);
     };
     checkSavedElons();
-    const intervalId = setInterval(checkSavedElons, 100);
+    const intervalId = setInterval(checkSavedElons, 1000);
     return () => clearInterval(intervalId);
   }, []);
   useEffect(() => {
