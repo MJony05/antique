@@ -18,7 +18,6 @@ const CategoryContent = ({ categoryId, categoriesName }: any) => {
       }
       const data = await res.json();
       setCategoryData(data.results);
-      console.log(data.results);
     } catch (err: any) {
       setError(err.message);
     } finally {

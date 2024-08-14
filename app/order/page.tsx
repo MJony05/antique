@@ -74,8 +74,6 @@ const Page = () => {
       });
 
       if (response.ok) {
-        // Handle success
-        console.log("Order submitted successfully");
         localStorage.removeItem("cart");
 
         setFormData({

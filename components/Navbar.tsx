@@ -19,7 +19,6 @@ const Navbar = () => {
         `${process.env.NEXT_PUBLIC_API}product?name=${query}`
       );
       const results = await response.json();
-      console.log(results);
       setSearchResults(results.results);
     } catch (error) {
       console.error("Error fetching search results:", error);

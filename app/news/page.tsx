@@ -16,7 +16,6 @@ const Page = () => {
     };
     fetchNews();
   }, []);
-  console.log(news);
   return (
     <div className={styles.news}>
       <Banner text="НОВОСТИ" />
