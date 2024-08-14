@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import React from "react";
 import styles from "./category.module.css";
 import CategoryContent from "./CategoryContent";
+import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
 export async function generateStaticParams() {
   try {
     // Fetch all product items to get their ids
@@ -31,6 +32,7 @@ const CategoryPage = async ({ params }: any) => {
       <div className={styles.category}>
         <Banner text={categoriesName[+categoryId - 1].name} />
         <Navbar />
+        <ResponsiveCatalog />
         <CategoryContent
           categoryId={categoryId}
           categoriesName={categoriesName}
