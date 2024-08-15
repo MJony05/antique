@@ -42,7 +42,7 @@ const Footer = () => {
           <Link className={styles.footerLink} href="/">
             Каталог
           </Link>
-          <Link className={styles.footerLink} href="/contact">
+          <Link className={styles.footerLink} href="/contacts">
             Контакты
           </Link>
         </div>

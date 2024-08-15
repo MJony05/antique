@@ -36,13 +36,14 @@
 }
 @media screen and (max-width: 500px) {
   .banner {
-    height: 140px;
+    height: auto;
     gap: 10px;
     border: 10px solid white;
     border-image: url("/border.png") 20 round;
+    padding: 10px;
   }
   .title {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 @media screen and (max-width: 400px) {

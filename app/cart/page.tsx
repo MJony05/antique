@@ -95,7 +95,7 @@ const Page = () => {
                     ₽
                   </h3>
                   <span onClick={() => handleDelete(item.id)}>
-                    <Button text="Удалить с карзины" />
+                    <Button text="Удалить с корзины" />
                   </span>
                 </div>
               </div>

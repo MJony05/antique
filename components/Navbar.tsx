@@ -64,7 +64,7 @@ const Navbar = () => {
                 <Link className={styles.navSubLink} href="/payment">
                   Оплата
                 </Link>
-                <Link className={styles.navSubLink} href="delivery">
+                <Link className={styles.navSubLink} href="/delivery">
                   Доставка
                 </Link>
                 <Link className={styles.navSubLink} href="/upakovka">
