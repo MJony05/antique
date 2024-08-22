@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./catalog.module.css";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Catalog() {
   const [data, setData] = useState([]);

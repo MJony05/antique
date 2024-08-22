@@ -5,14 +5,33 @@ import Image from "next/image";
 import Button from "./details/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Catalog from "./details/Catalog";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  const [open2, setOpen2] = useState(false);
+  const [open2, setOpen2] = useState(true);
+  const [open3, setOpen3] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const router = useRouter();
   const [number, setNumber] = useState(0);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch(process.env.NEXT_PUBLIC_API + "category");
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const result = await res.json();
+        setData(result);
+      } catch (err: any) {
+        return err.message;
+      }
+    }
+    fetchData();
+  }, []);
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
@@ -54,7 +73,7 @@ const Header = () => {
   }, [searchQuery]);
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={styles.navbar} style={{ zIndex: 100 }}>
       <div className={styles.navLeft}>
         <div className={styles.searchBox}>
           <input
@@ -163,28 +182,69 @@ const Header = () => {
                 Услуги{" "}
                 <Image src="/vector.svg" alt="arrow" width={13} height={7} />
               </p>
-              {open2 && (
-                <div
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setOpen(false);
-                  }}
-                  className={styles.navSubLinks}
-                >
-                  <Link className={styles.navSubLink} href="/primerka">
-                    Примерка
-                  </Link>
-                  <Link className={styles.navSubLink} href="/payment">
-                    Оплата
-                  </Link>
-                  <Link className={styles.navSubLink} href="/delivery">
-                    Доставка
-                  </Link>
-                  <Link className={styles.navSubLink} href="/upakovka">
-                    Упаковка
-                  </Link>
-                </div>
-              )}
+
+              <div
+                style={{ display: open2 ? "flex" : "none" }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setOpen(false);
+                }}
+                className={styles.navSubLinks}
+              >
+                <Link className={styles.navSubLink} href="/primerka">
+                  Примерка
+                </Link>
+                <Link className={styles.navSubLink} href="/payment">
+                  Оплата
+                </Link>
+                <Link className={styles.navSubLink} href="/delivery">
+                  Доставка
+                </Link>
+                <Link className={styles.navSubLink} href="/upakovka">
+                  Упаковка
+                </Link>
+              </div>
+            </div>
+            <div className={styles.navButton}>
+              <p onClick={() => setOpen3(!open3)} style={{ marginTop: "20px" }}>
+                Каталог{" "}
+                <Image src="/vector.svg" alt="arrow" width={13} height={7} />
+              </p>
+
+              <div
+                style={{ display: open3 ? "flex" : "none" }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setOpen(false);
+                }}
+                className={styles.navSubLinks}
+              >
+                {data.map((category: any) => (
+                  <div key={category.id}>
+                    <Link
+                      className={styles.catalogLink}
+                      href={`category/${category.id}`}
+                    >
+                      <h3 className={styles.catalogName}>{category.name}</h3>
+                    </Link>
+                    {category.sub_categor.length > 0
+                      ? category.sub_categor.map((subCategory: any) => (
+                          <p
+                            className={styles.catalogItem}
+                            key={subCategory.id}
+                          >
+                            <Link
+                              className={styles.catalogLink}
+                              href={`category/${category.id}`}
+                            >
+                              - {subCategory.name}
+                            </Link>
+                          </p>
+                        ))
+                      : ""}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <Image
