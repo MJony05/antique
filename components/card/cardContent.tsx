@@ -70,6 +70,9 @@ const CardContent = ({ productId }: any) => {
 
   return (
     <main className="mainContent">
+      <button className="backButton" onClick={() => window.history.back()}>
+        <Image src="/arrow.svg" alt="arrow" width={20} height={20} /> Назад
+      </button>
       {productData && (
         <>
           <div className="cardContent">

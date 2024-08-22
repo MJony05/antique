@@ -2,13 +2,14 @@
 import React, { useEffect, useState } from "react";
 import styles from "./category.module.css";
 import Card from "@/components/details/Card";
+import { useRouter } from "next/navigation";
 
 const CategoryContent = ({ categoryId, categoriesName }: any) => {
   const [categoryData, setCategoryData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
-
+  const router = useRouter();
   const fetchCategoryData = async (url: string) => {
     try {
       setLoading(true);
@@ -28,18 +29,32 @@ const CategoryContent = ({ categoryId, categoriesName }: any) => {
   useEffect(() => {
     const url = `http://31.128.44.221:8000/category/product/${categoryId}`;
     fetchCategoryData(url);
+
+    const scrollPosition = sessionStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+      const { x, y } = JSON.parse(scrollPosition);
+
+      window.scrollTo(x, y);
+    }
   }, [categoryId]);
 
   useEffect(() => {
     if (selectedSubcategory === null) {
-      const url = `http://31.128.44.221:8000/category/product/${categoryId}`;
+      const url = `${process.env.NEXT_PUBLIC_API}category/product/${categoryId}`;
       fetchCategoryData(url);
     } else {
-      const url = `http://31.128.44.221:8000/sub_categroy/product/${selectedSubcategory}`;
+      const url = `${process.env.NEXT_PUBLIC_API}sub_categroy/product/${selectedSubcategory}`;
       fetchCategoryData(url);
     }
   }, [selectedSubcategory, categoryId]);
-
+  const handleProductClick = (productId: number) => {
+    // Save scroll position before navigating
+    sessionStorage.setItem(
+      "scrollPosition",
+      JSON.stringify({ x: window.scrollX, y: window.scrollY })
+    );
+    router.push(`/product/${productId}`);
+  };
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -73,7 +88,11 @@ const CategoryContent = ({ categoryId, categoriesName }: any) => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            categoryData.map((item: any) => <Card key={item.id} data={item} />)
+            categoryData.map((item: any) => (
+              <div key={item.id} onClick={() => handleProductClick(item.id)}>
+                <Card data={item} />
+              </div>
+            ))
           )}
         </div>
       </div>

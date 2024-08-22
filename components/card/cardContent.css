@@ -186,6 +186,18 @@
     justify-content: center;
   }
 }
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #e3c05c;
+  /* font-family: "Noto serif", serif; */
+  background-color: transparent;
+  border: none;
+  margin-bottom: 8px;
+}
 @media (max-width: 400px) {
   .mainImage {
     height: 100%;

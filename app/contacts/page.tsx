@@ -74,13 +74,34 @@ const page = () => {
           </div>
         </div>
         <div className={styles.mainRight}>
-          <iframe
-            style={{ width: "100%", height: "357px" }}
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d511631.13889652846!2d29.43533648574493!3d59.939457342260006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696378cc74a6f9d%3A0xfa47ca5a4725c9e4!2sSaint%20Petersburg%2C%20Sankt-Peterburg%2C%20Rossiya!5e0!3m2!1suz!2s!4v1723038659838!5m2!1suz!2s"
-            allowFullScreen={true}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+          <div style={{ position: "relative", overflow: "hidden" }}>
+            <a
+              href="https://yandex.uz/maps/2/saint-petersburg/?utm_medium=mapframe&utm_source=maps"
+              style={{
+                color: "#eee",
+                fontSize: "12px",
+                position: "absolute",
+                top: "0px",
+              }}
+            >
+              Санкт‑Петербург
+            </a>
+            <a
+              href="https://yandex.uz/maps/2/saint-petersburg/house/leninskiy_prospekt_151/Z0kYdQdgQE0EQFtjfXR0cHhhZg==/?ll=30.300710%2C59.851434&utm_medium=mapframe&utm_source=maps&z=16.19"
+              style={{
+                color: "#eee",
+                fontSize: "12px",
+                position: "absolute",
+                top: "14px",
+              }}
+            >
+              Ленинский проспект, 151 — Яндекс Карты
+            </a>
+            <iframe
+              src="https://yandex.uz/map-widget/v1/?ll=30.300710%2C59.851434&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NzQxNTM0NRJV0KDQvtGB0YHQuNGPLCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywg0JvQtdC90LjQvdGB0LrQuNC5INC_0YDQvtGB0L_QtdC60YIsIDE1MSIKDWto8kEV22dvQg%2C%2C&z=16.19"
+              style={{ position: "relative", width: "100%", height: "357px" }}
+            ></iframe>
+          </div>
         </div>
       </main>
       <ContactForm />
