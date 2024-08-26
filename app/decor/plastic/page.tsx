@@ -5,7 +5,12 @@ import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Title from "@/components/details/Title";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Пластиковый багет в Санкт-Петербурге",
+  description:
+    "Vernissage - Пластиковые багеты для оформления ваших произведенний исскуства! Оставляйте заявку на сайте",
+};
 const arr = [
   {
     id: "1",

@@ -6,6 +6,9 @@ import CardContent from "@/components/card/cardContent";
 import "./card.css";
 import Navbar from "@/components/Navbar";
 import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
+import { Metadata } from "next";
+import Head from "next/head";
+// import { Head } from "next/document";
 
 const PageClient = ({ productId }: { productId: string }) => {
   const [productData, setProductData] = useState<any>(null);
@@ -32,12 +35,23 @@ const PageClient = ({ productId }: { productId: string }) => {
 
     fetchProductData();
   }, [productId]);
-
+  useEffect(() => {
+    if (productData?.serializer?.name) {
+      document.title = `"${productData.serializer.name}" купить в Санкт-Петербурге`;
+    }
+  }, [productData]);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
     <>
+      <Head>
+        {/* <title>{productData?.serializer?.name || "АРТ-ЛАВКА"}</title> */}
+        <meta
+          name="description"
+          content={`Vernissage - ${productData?.serializer?.name} вы можете купить в нашей Арт-Лавке по приятной цене! Оставляйте заявку на сайте`}
+        />
+      </Head>
       {productData?.serializer && <Banner text={productData.serializer.name} />}
       <Navbar />
       <ResponsiveCatalog />

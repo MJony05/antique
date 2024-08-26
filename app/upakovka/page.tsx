@@ -5,6 +5,12 @@ import Navbar from "@/components/Navbar";
 import React from "react";
 import "./style.css";
 import Image from "next/image";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Упаковка наших антикварных изделий!",
+  description:
+    "Vernissage - Мы чательно и аккуратно упаковываем наш товар! Ознакомиться с примерами упаковки, можно у нас на сайте!",
+};
 const Page = () => {
   return (
     <div className="page">

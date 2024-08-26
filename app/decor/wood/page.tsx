@@ -5,6 +5,12 @@ import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Title from "@/components/details/Title";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Деревянный багет для оформления",
+  description:
+    "Vernissage - Предлагаем деревянные багеты для оформление картин, фотографий! Оставляйте заявку на сайте",
+};
 const arr = [
   {
     id: "1",

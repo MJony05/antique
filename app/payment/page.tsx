@@ -5,6 +5,12 @@ import Navbar from "@/components/Navbar";
 import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Способы оплаты в нашей Арт-Лавке",
+  description:
+    "Vernissage - Ознакомьтесь с способами оплаты наших антикварных произведений исскуства! Оставляйте заявку на сайте",
+};
 const page = () => {
   return (
     <div className={styles.container}>

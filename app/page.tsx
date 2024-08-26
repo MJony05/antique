@@ -7,10 +7,14 @@ import styles from "./page.module.css";
 import NewItems from "@/components/home/NewItems";
 import Advantages from "@/components/home/Advantages";
 import News from "@/components/home/News";
-import Image from "next/image";
 import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
+import { Metadata } from "next";
 // import "react-toastify/dist/ReactToastify.css";
-
+export const metadata: Metadata = {
+  title: "Арт-Лавка в Санкт-Петербурге!",
+  description:
+    "Vernissage - Предлагаем посетить нашу незабываемую Арт-Лавку! У нас вы найдёте множество антиквариата",
+};
 export default async function Home() {
   return (
     <>

@@ -14,7 +14,6 @@ const myFont = localFont({
 
 export const metadata: Metadata = {
   title: "Vernissage",
-  description: "АРТ-ЛАВКА",
 };
 
 export default function RootLayout({

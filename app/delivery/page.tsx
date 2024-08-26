@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import React from "react";
 import styles from "./style.module.css";
 import Image from "next/image";
+import { Metadata } from "next";
 const arr = [
   {
     id: "1",
@@ -31,6 +32,11 @@ const arr = [
     text: "Мы тщательно следим за сохранностью товара на всех этапах доставки, гарантируя его целостность и качество.",
   },
 ];
+export const metadata: Metadata = {
+  title: "Доставка | Vernissage",
+  description:
+    "Vernissage - Условия доставки антиквариата в Санкт-Петербурге! Приятные цены, быстрая доставка. Оставляйте заявку на сайте",
+};
 const Page = () => {
   return (
     <div className={styles.delivery}>

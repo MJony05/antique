@@ -6,6 +6,12 @@ import styles from "./style.module.css";
 import ContactForm from "@/components/ContactForm";
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Контактная информация | Vernissage",
+  description:
+    "Vernissage - Контактная информация для связи с нами! Большой выбор антиквариата по приятной цене.",
+};
 const page = () => {
   return (
     <div className={styles.contactContainer}>

@@ -7,6 +7,12 @@ import Image from "next/image";
 import Title from "@/components/details/Title";
 import ContactForm from "@/components/ContactForm";
 import Link from "next/link";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Оформление багета в СПБ",
+  description:
+    "Vernissage - У нас вы можете приобрести оформление багета по приятной цене! Оставляйте заявку на сайте",
+};
 const arr = [
   {
     id: "01",

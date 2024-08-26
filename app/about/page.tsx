@@ -5,6 +5,14 @@ import Image from "next/image";
 import Title from "@/components/details/Title";
 import ContactForm from "@/components/ContactForm";
 import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
+import { Metadata } from "next";
+// HEAD for SEO
+export const metadata: Metadata = {
+  title: "О нашей Арт-Лавке!",
+  description:
+    "Vernissage - Вся актуальная информация о нашей Арт-Лавке! Продажа антикварных изделий в СПБ",
+};
+
 const arr = [
   {
     id: "1",

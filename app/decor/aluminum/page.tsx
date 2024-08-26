@@ -5,9 +5,13 @@ import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Title from "@/components/details/Title";
-import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Алюминиевый багет в Санкт-Петербурге",
+  description:
+    "Vernissage - Предлагаем большой выбор алюминиевых багетов для оформления ваших произведений исскуства! Оставляйте заявку на сайте",
+};
 const arr = [
   {
     id: "1",
