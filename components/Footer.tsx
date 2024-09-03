@@ -103,7 +103,7 @@ const Footer = () => {
                   item.sub_categor.map((sub: any) => (
                     <Link
                       className={styles.footerSubLink}
-                      href={`/category/${sub.id}`}
+                      href={`/category/${item.id}`}
                       key={sub.id}
                     >
                       {sub.name}
@@ -125,7 +125,10 @@ const Footer = () => {
               height={24}
             />
             <p className={styles.footerContentText}>
-              Россия, Санкт-петербург, Ленинский просп., 151
+              Санкт-Петербург, ТД &quot;ПАССАЖ&quot;, Невский проспект, дом 48,
+              1 этаж, 37 секция. <br /> <br /> Санкт-Петербург, ТЦ
+              &quot;МОСКВА&quot;, Площадь Александра Невского, дом 2, 1 этаж,
+              105 секция.
             </p>
           </div>
           <div className={styles.footerContentItem}>
@@ -140,7 +143,9 @@ const Footer = () => {
             </div>
             <p className={styles.footerContentText}>
               <span>Звоните с 9:00 до 18:00</span>
-              +7 (999) 999-99-99
+              +8 (911) 260-61-46
+              <br />
+              <br /> +8 (931) 375-21-65
             </p>
           </div>
           <div className={styles.footerSocials}>
@@ -160,7 +165,7 @@ const Footer = () => {
             </Link>
             <Link
               className={styles.footerLink}
-              href="https://www.instagram.com"
+              href="https://wa.me/+79112606146"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -174,7 +179,7 @@ const Footer = () => {
             </Link>
             <Link
               className={styles.footerLink}
-              href="https://www.instagram.com"
+              href="https://t.me/+79112606146"
               target="_blank"
               rel="noopener noreferrer"
             >

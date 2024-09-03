@@ -27,7 +27,7 @@ const CategoryContent = ({ categoryId, categoriesName }: any) => {
   };
 
   useEffect(() => {
-    const url = `http://31.128.44.221:8000/category/product/${categoryId}`;
+    const url = `${process.env.NEXT_PUBLIC_API}category/product/${categoryId}`;
     fetchCategoryData(url);
 
     const scrollPosition = sessionStorage.getItem("scrollPosition");

@@ -21,11 +21,16 @@ const page = () => {
       <main className={styles.main}>
         <div className={styles.mainLeft}>
           <p className={styles.mainText}>
-            <span className={styles.mainSpan}>Адрес </span> Россия,
-            Санкт-петербург, Ленинский просп., 151
+            <span className={styles.mainSpan}>Адрес </span> Санкт-Петербург, ТД
+            &quot;ПАССАЖ&quot;, Невский проспект, дом 48, 1 этаж, 37 секция.{" "}
+            <br />
+            Санкт-Петербург, ТЦ &quot;МОСКВА&quot;, Площадь Александра Невского,
+            дом 2, 1 этаж, 105 секция.
           </p>
           <p className={styles.mainText}>
-            <span className={styles.mainSpan}>Телефон </span> +7 (999) 999-99-99
+            <span className={styles.mainSpan}>Телефон </span> +8 (911) 260-61-46{" "}
+            <br />
+            +8 (931) 375-21-65
           </p>
           <p className={styles.mainText}>
             <span className={styles.mainSpan}>E-mail </span> artlavka@mail.com
@@ -51,7 +56,7 @@ const page = () => {
             </Link>
             <Link
               className={styles.footerLink}
-              href="https://www.instagram.com"
+              href="https://wa.me/+79112606146"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -65,7 +70,7 @@ const page = () => {
             </Link>
             <Link
               className={styles.footerLink}
-              href="https://www.instagram.com"
+              href="https://t.me/+79112606146"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -82,7 +87,7 @@ const page = () => {
         <div className={styles.mainRight}>
           <div style={{ position: "relative", overflow: "hidden" }}>
             <a
-              href="https://yandex.uz/maps/2/saint-petersburg/?utm_medium=mapframe&utm_source=maps"
+              href="https://yandex.uz/maps/org/passage/1037956855/?utm_medium=mapframe&utm_source=maps"
               style={{
                 color: "#eee",
                 fontSize: "12px",
@@ -90,10 +95,10 @@ const page = () => {
                 top: "0px",
               }}
             >
-              Санкт‑Петербург
+              Пассаж
             </a>
             <a
-              href="https://yandex.uz/maps/2/saint-petersburg/house/leninskiy_prospekt_151/Z0kYdQdgQE0EQFtjfXR0cHhhZg==/?ll=30.300710%2C59.851434&utm_medium=mapframe&utm_source=maps&z=16.19"
+              href="https://yandex.uz/maps/2/saint-petersburg/category/shopping_mall/184108083/?utm_medium=mapframe&utm_source=maps"
               style={{
                 color: "#eee",
                 fontSize: "12px",
@@ -101,11 +106,13 @@ const page = () => {
                 top: "14px",
               }}
             >
-              Ленинский проспект, 151 — Яндекс Карты
+              Торговый центр в Санкт‑Петербурге
             </a>
             <iframe
-              src="https://yandex.uz/map-widget/v1/?ll=30.300710%2C59.851434&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NzQxNTM0NRJV0KDQvtGB0YHQuNGPLCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywg0JvQtdC90LjQvdGB0LrQuNC5INC_0YDQvtGB0L_QtdC60YIsIDE1MSIKDWto8kEV22dvQg%2C%2C&z=16.19"
-              style={{ position: "relative", width: "100%", height: "357px" }}
+              src="https://yandex.uz/map-widget/v1/?ll=30.334447%2C59.935270&mode=search&oid=1037956855&ol=biz&sll=30.334447%2C59.935270&sspn=0.022573%2C0.006192&text=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%2C%20%D0%A2%D0%94%20%22%D0%9F%D0%90%D0%A1%D0%A1%D0%90%D0%96%22%2C%20%D0%9D%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2C%20%D0%B4%D0%BE%D0%BC%2048%2C%201%20%D1%8D%D1%82%D0%B0%D0%B6%2C&z=16"
+              width="100%"
+              height="400"
+              style={{ position: "relative" }}
             ></iframe>
           </div>
         </div>

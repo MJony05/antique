@@ -9,8 +9,8 @@ import Catalog from "./details/Catalog";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  const [open2, setOpen2] = useState(true);
-  const [open3, setOpen3] = useState(true);
+  const [open2, setOpen2] = useState(false);
+  const [open3, setOpen3] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const router = useRouter();
@@ -104,7 +104,10 @@ const Header = () => {
             />
           </div>
           <p className={styles.navLeftItemText}>
-            Россия, Санкт-петербург, Ленинский просп., 151
+            Санкт-Петербург, ТД &quot;ПАССАЖ&quot;, <br /> Невский проспект, дом
+            48, 1 этаж, 37 секция.
+            {/* <br /> Санкт-Петербург, ТЦ &quot;МОСКВА&quot;,
+            Площадь Александра Невского, дом 2, 1 этаж, 105 секция. */}
           </p>
         </div>
         <div className={styles.navLeftItem}>
@@ -119,7 +122,8 @@ const Header = () => {
           </div>
           <p className={styles.navLeftItemText}>
             <span>Звоните с 9:00 до 18:00</span>
-            +7 (999) 999-99-99
+            +8 (911) 260-61-46
+            {/* <br /> +8 (911) 260-61-46 */}
           </p>
         </div>
       </div>
