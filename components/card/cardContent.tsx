@@ -67,7 +67,26 @@ const CardContent = ({ productId }: any) => {
   if (error) {
     return <div>Error: {error}</div>;
   }
+  function getYouTubeVideoId(url: string) {
+    let videoId = null;
 
+    if (url !== null && url !== undefined && url.includes("youtu.be")) {
+      videoId = url.split("/").pop().split("?")[0];
+    } else if (url.includes("youtube.com")) {
+      const urlObj = new URL(url);
+      const path = urlObj.pathname;
+
+      if (urlObj.searchParams.has("v")) {
+        videoId = urlObj.searchParams.get("v");
+      } else if (path.includes("/live/")) {
+        videoId = path.split("/live/")[1].split("?")[0];
+      } else if (path.includes("/shorts/")) {
+        videoId = path.split("/shorts/")[1].split("?")[0];
+      }
+    }
+
+    return videoId;
+  }
   return (
     <main className="mainContent">
       <button className="backButton" onClick={() => window.history.back()}>
@@ -128,6 +147,25 @@ const CardContent = ({ productId }: any) => {
               </div>
 
               <div className="more-images">
+                {productData.video && (
+                  <iframe
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                    }}
+                    width="560"
+                    height="315"
+                    // https://www.youtube.com/live/litF2nMp1Ns?si=KRDVGU076_5Nqv5D
+                    src={`https://youtube.com/embed/${getYouTubeVideoId(
+                      productData.video
+                    )}?si=-G5TBQuFmu63onhd`}
+                    // title="YouTube video player"
+                    // frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                )}
                 {productData.images.map((image: any, index: any) => (
                   <Image
                     key={index}

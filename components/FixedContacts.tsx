@@ -12,19 +12,6 @@ export default function FixedContacts() {
       <div className="fixedIcon">
         <Link
           className="fixIcon"
-          href="/"
-          style={{ top: visible ? "-150%" : "0" }}
-        >
-          <Image
-            className="fixIconImage"
-            src="/fixed-instagram.svg"
-            alt="decor"
-            width={300}
-            height={300}
-          />
-        </Link>
-        <Link
-          className="fixIcon"
           href="https://t.me/+79112606146"
           target="_blank"
           style={{ top: visible ? "-75%" : "0" }}
@@ -41,7 +28,7 @@ export default function FixedContacts() {
           className="fixIcon"
           href="https://wa.me/+79112606146"
           target="_blank"
-          style={{ top: visible ? "-225%" : "0" }}
+          style={{ top: visible ? "-150%" : "0" }}
         >
           <Image
             className="fixIconImage"

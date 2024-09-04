@@ -151,20 +151,6 @@ const Footer = () => {
           <div className={styles.footerSocials}>
             <Link
               className={styles.footerLink}
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className={styles.footerLinkIcon}
-                src="/instagram-logo.svg"
-                alt="instagram-icon"
-                width={30}
-                height={30}
-              />
-            </Link>
-            <Link
-              className={styles.footerLink}
               href="https://wa.me/+79112606146"
               target="_blank"
               rel="noopener noreferrer"

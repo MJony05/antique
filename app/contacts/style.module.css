@@ -14,7 +14,7 @@
 .footerSocials {
   display: flex;
   max-width: 240px;
-  justify-content: space-between;
+  gap: 20px;
 }
 .mainLeft {
   display: flex;
