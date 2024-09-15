@@ -49,7 +49,7 @@
 .product_right {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   gap: 20px;
 }
 .sum {
@@ -111,7 +111,9 @@
     object-fit: cover;
   }
 }
-
+.responsive_price {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   .cart_product {
     flex-direction: column;
@@ -164,6 +166,16 @@
   }
   .sum h3 {
     font-size: 20px;
+  }
+  .product_right {
+    margin-top: 10px;
+  }
+  .responsive_price {
+    display: block;
+    text-align: left;
+  }
+  .product_price {
+    display: none;
   }
 }
 .orderButton {

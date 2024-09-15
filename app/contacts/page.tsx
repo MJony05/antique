@@ -28,9 +28,9 @@ const page = () => {
             дом 2, 1 этаж, 105 секция.
           </p>
           <p className={styles.mainText}>
-            <span className={styles.mainSpan}>Телефон </span> +8 (911) 260-61-46{" "}
+            <span className={styles.mainSpan}>Телефон </span> +7 (911) 260-61-46{" "}
             <br />
-            +8 (931) 375-21-65
+            +7 (931) 375-21-65
           </p>
           <p className={styles.mainText}>
             <span className={styles.mainSpan}>E-mail </span> artlavka@mail.com

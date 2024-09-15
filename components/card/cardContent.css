@@ -169,6 +169,10 @@
   .btn-group {
     gap: 10px;
     margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .title {
     font-size: 24px;

@@ -126,9 +126,9 @@ const Footer = () => {
             />
             <p className={styles.footerContentText}>
               Санкт-Петербург, ТД &quot;ПАССАЖ&quot;, Невский проспект, дом 48,
-              1 этаж, 37 секция. <br /> <br /> Санкт-Петербург, ТЦ
-              &quot;МОСКВА&quot;, Площадь Александра Невского, дом 2, 1 этаж,
-              105 секция.
+              1 этаж, 37 секция. с 10:00 до 22:00 <br /> <br /> Санкт-Петербург,
+              ТЦ &quot;МОСКВА&quot;, Площадь Александра Невского, дом 2, 1 этаж,
+              105 секция. с 10:00 до 21:00
             </p>
           </div>
           <div className={styles.footerContentItem}>
@@ -142,10 +142,10 @@ const Footer = () => {
               />
             </div>
             <p className={styles.footerContentText}>
-              <span>Звоните с 9:00 до 18:00</span>
-              +8 (911) 260-61-46
+              <span>Звоните с 9:00 до 22:00</span>
+              +7 (911) 260-61-46
               <br />
-              <br /> +8 (931) 375-21-65
+              <br /> +7 (931) 375-21-65
             </p>
           </div>
           <div className={styles.footerSocials}>

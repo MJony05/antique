@@ -28,18 +28,6 @@ const Page = () => {
     window.dispatchEvent(event);
   };
 
-  const handleAmountChange = (id: string, newAmount: number) => {
-    const updatedCart: any = cart.map((item: any) =>
-      item.id === id ? { ...item, amount: newAmount } : item
-    );
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-    // Trigger custom event for cart update
-    const event = new Event("cartUpdate");
-    window.dispatchEvent(event);
-  };
-
   return (
     <div className="cart">
       <Banner text="Корзина" />
@@ -65,35 +53,11 @@ const Page = () => {
                   <div className="product_infos">
                     <h3 className="product_name">Наименование:</h3>
                     <p className="product_title">{item.name}</p>
+                    <h3 className="responsive_price">{item.price} ₽</h3>
                   </div>
                 </div>
                 <div className="product_right">
-                  <div className="amount-editor">
-                    <button
-                      className="btn"
-                      onClick={() =>
-                        handleAmountChange(
-                          item.id,
-                          Math.max(1, item.amount - 1)
-                        )
-                      }
-                    >
-                      -
-                    </button>
-                    <span className="amount">{item.amount}</span>
-                    <button
-                      className="btn"
-                      onClick={() =>
-                        handleAmountChange(item.id, item.amount + 1)
-                      }
-                    >
-                      +
-                    </button>
-                  </div>
-                  <h3 className="product_price">
-                    {item.amount} x {item.price} ₽ = {item.amount * item.price}{" "}
-                    ₽
-                  </h3>
+                  <h3 className="product_price">{item.price} ₽</h3>
                   <span onClick={() => handleDelete(item.id)}>
                     <Button text="Удалить с корзины" />
                   </span>
@@ -109,10 +73,9 @@ const Page = () => {
             <p>СУММА ЗАКАЗА:</p>
             <h3>
               {cart.reduce(
-                (acc, item: { price: number; amount: number }) =>
-                  acc + item.price * item.amount,
+                (acc, item: { price: number }) => acc + item.price,
                 0
-              )}{" "}
+              )}
               ₽
             </h3>
           </div>

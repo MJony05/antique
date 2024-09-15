@@ -44,16 +44,13 @@ const CardContent = ({ productId }: any) => {
     );
 
     if (productIndex > -1) {
-      cart[productIndex].amount += amount;
+      toast.error("Товар добавлен в корзину");
     } else {
-      cart.push({ ...productData, amount });
+      cart.push(productData);
+      toast.success("Товар добавлен в корзину");
+      localStorage.setItem("cart", JSON.stringify(cart));
     }
-    toast.success("Товар добавлен в корзину");
-    localStorage.setItem("cart", JSON.stringify(cart));
   };
-
-  const incrementAmount = () => setAmount(amount + 1);
-  const decrementAmount = () => setAmount(amount > 1 ? amount - 1 : 1);
 
   const openModal = (src: string) => {
     setModalImageSrc(src);
@@ -67,20 +64,28 @@ const CardContent = ({ productId }: any) => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  function getYouTubeVideoId(url: string) {
-    let videoId = null;
+  function getYouTubeVideoId(url: string | null | undefined): string | null {
+    if (typeof url !== "string" || !url) {
+      return null;
+    }
 
-    if (url !== null && url !== undefined && url.includes("youtu.be")) {
-      videoId = url.split("/").pop().split("?")[0];
+    let videoId: string | null = null;
+
+    if (url.includes("youtu.be")) {
+      // Handle shortened youtu.be links
+      videoId = url.split("/").pop()?.split("?")[0] || null;
     } else if (url.includes("youtube.com")) {
       const urlObj = new URL(url);
       const path = urlObj.pathname;
 
       if (urlObj.searchParams.has("v")) {
+        // Handle standard youtube.com links
         videoId = urlObj.searchParams.get("v");
       } else if (path.includes("/live/")) {
+        // Handle youtube.com/live/ links
         videoId = path.split("/live/")[1].split("?")[0];
       } else if (path.includes("/shorts/")) {
+        // Handle youtube.com/shorts/ links
         videoId = path.split("/shorts/")[1].split("?")[0];
       }
     }
@@ -129,17 +134,8 @@ const CardContent = ({ productId }: any) => {
                   <span>Язык:</span>
                   {productData.language}
                 </p>
-                <h3 className="price">{productData.price} руб.</h3>
                 <div className="btn-group">
-                  <div className="amount-editor">
-                    <button className="btn" onClick={decrementAmount}>
-                      -
-                    </button>
-                    <span className="amount">{amount}</span>
-                    <button className="btn" onClick={incrementAmount}>
-                      +
-                    </button>
-                  </div>
+                  <h3 className="price">{productData.price} руб.</h3>
                   <button className="btn to-cart" onClick={handleAddToCart}>
                     В корзину
                   </button>

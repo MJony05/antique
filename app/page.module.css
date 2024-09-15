@@ -39,3 +39,11 @@
     justify-content: center;
   }
 }
+.stickyNavbar {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background-color: white; /* Ensure background is not transparent */
+  width: 100%; /* Make sure it spans the full width */
+}

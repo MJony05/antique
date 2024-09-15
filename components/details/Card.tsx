@@ -1,29 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./card.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-toastify";
 
 const Card = ({ data }: { data: any }) => {
+  // const [existingCart, setxistingCart] = useState([]);
+
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    // Get existing cart items from local storage
     const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    toast.success("Товар добавлен в корзину");
-    // Find if the item already exists in the cart
     const itemIndex = existingCart.findIndex(
       (item: any) => item.id === data.id
     );
+    if (itemIndex === -1) {
+      toast.success("Товар добавлен в корзину");
+      existingCart.push(data);
 
-    // If item exists, increment the amount, otherwise add the item with amount 1
-    if (itemIndex !== -1) {
-      existingCart[itemIndex].amount += 1;
+      localStorage.setItem("cart", JSON.stringify(existingCart));
     } else {
-      existingCart.push({ ...data, amount: 1 });
+      toast.error("Товар уже добавлен в корзину");
     }
-
     // Save updated cart to local storage
-    localStorage.setItem("cart", JSON.stringify(existingCart));
   };
   return (
     <Link href={`/product/${data.id}`} className={styles.card}>

@@ -3,16 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import styles from "./navbar.module.css";
+import ResponsiveCatalog from "./home/ResponsiveCatalog";
+import Catalog from "./details/Catalog";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  // Function to handle search input changes
+  const [catalog, setCatalog] = useState(false);
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
-
   const fetchSearchResults = async (query: string) => {
     try {
       const response = await fetch(
@@ -52,6 +53,19 @@ const Navbar = () => {
           <Link className={styles.navLink} href="/decor">
             Оформление в багет
           </Link>
+          <div onClick={() => setCatalog(!catalog)} className={styles.navLink}>
+            Каталог{" "}
+            <Image src="/vector.svg" alt="arrow" width={13} height={7} />
+          </div>
+
+          {catalog && (
+            <div
+              // style={{ display: catalog ? "absolute" : "none" }}
+              className={styles.catalog}
+            >
+              <Catalog title={true} />
+            </div>
+          )}
           <div className={styles.navButton}>
             <p className={styles.navLink} onClick={() => setOpen(!open)}>
               Услуги{" "}
@@ -75,6 +89,7 @@ const Navbar = () => {
             )}
           </div>
         </div>
+
         <div className={styles.searchBox}>
           <input
             className={styles.searchInput}
@@ -88,8 +103,8 @@ const Navbar = () => {
               className={styles.searchIcon}
               src="/search-icon.svg"
               alt="search-icon"
-              width={19}
-              height={19}
+              width={22}
+              height={22}
             />
           </button>
         </div>

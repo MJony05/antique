@@ -50,11 +50,7 @@ const Header = () => {
     const checkSavedElons = () => {
       const products = JSON.parse(localStorage.getItem("cart") || "[]");
 
-      const sum = products.reduce(
-        (acc: number, item: { amount: number }) => acc + item.amount,
-        0
-      );
-      setNumber(sum);
+      setNumber(products.length);
     };
     checkSavedElons();
     const intervalId = setInterval(checkSavedElons, 1000);
@@ -121,8 +117,8 @@ const Header = () => {
             />
           </div>
           <p className={styles.navLeftItemText}>
-            <span>Звоните с 9:00 до 18:00</span>
-            +8 (911) 260-61-46
+            <span>Звоните с 9:00 до 22:00</span>
+            +7 (911) 260-61-46
             {/* <br /> +8 (911) 260-61-46 */}
           </p>
         </div>

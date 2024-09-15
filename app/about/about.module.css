@@ -7,14 +7,16 @@
   background-color: white;
   padding: 40px 20px;
 }
-.aboutContent p {
+.aboutContent p,
+.aboutContent h3 {
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 10px;
+  text-align: center;
 }
 .aboutContent span {
-  font-weight: 500;
-  color: #e3c05c;
+  font-weight: 400;
+  color: #b9802b;
 }
 .aboutContent h3 {
   font-size: 20px;

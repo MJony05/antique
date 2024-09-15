@@ -7,7 +7,7 @@ import "./style.css";
 const Page = () => {
   return (
     <div className="page">
-      <Banner text="примерка" />
+      <Banner text="Примерить в своем интерьере" />
       <Navbar />
       <ResponsiveCatalog />
       <main>

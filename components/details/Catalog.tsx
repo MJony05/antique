@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./catalog.module.css";
 import Link from "next/link";
 
-export default function Catalog() {
+export default function Catalog({ title }: { title?: boolean }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -31,7 +31,7 @@ export default function Catalog() {
 
   return (
     <div className={styles.catalog}>
-      <h2 className={styles.catalogTitle}>Каталог</h2>
+      {!title ? <h2 className={styles.catalogTitle}>Каталог</h2> : ""}
       <div className={styles.catalogItems}>
         {data.map((category: any) => (
           <div key={category.id}>

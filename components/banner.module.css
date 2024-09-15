@@ -9,7 +9,7 @@
   gap: 30px;
   height: 280px;
   justify-content: center;
-  border: 25px solid white;
+  border: 20px solid white;
   border-image: url("/border.png") 30 round;
   background-color: white;
 }
@@ -17,7 +17,7 @@
   object-fit: contain;
 }
 .title {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
