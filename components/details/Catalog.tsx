@@ -37,7 +37,7 @@ export default function Catalog({ title }: { title?: boolean }) {
           <div key={category.id}>
             <Link
               className={styles.catalogLink}
-              href={`category/${category.id}`}
+              href={`/category/${category.id}`}
             >
               <h3 className={styles.catalogName}>{category.name}</h3>
             </Link>
@@ -45,8 +45,11 @@ export default function Catalog({ title }: { title?: boolean }) {
               ? category.sub_categor.map((subCategory: any) => (
                   <p className={styles.catalogItem} key={subCategory.id}>
                     <Link
+                      onClick={() => {
+                        localStorage.setItem("subcategory", subCategory.id);
+                      }}
                       className={styles.catalogLink}
-                      href={`category/${category.id}`}
+                      href={`/category/${category.id}`}
                     >
                       - {subCategory.name}
                     </Link>

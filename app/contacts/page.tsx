@@ -22,10 +22,11 @@ const page = () => {
         <div className={styles.mainLeft}>
           <p className={styles.mainText}>
             <span className={styles.mainSpan}>Адрес </span> Санкт-Петербург, ТД
-            &quot;ПАССАЖ&quot;, Невский проспект, дом 48, 1 этаж, 37 секция.{" "}
+            &quot;ПАССАЖ&quot;, Невский проспект, дом 48, 1 этаж, 37 секция. с
+            10:00 до 22:00
             <br />
             Санкт-Петербург, ТЦ &quot;МОСКВА&quot;, Площадь Александра Невского,
-            дом 2, 1 этаж, 105 секция.
+            дом 2, 1 этаж, 105 секция. с 10:00 до 21:00
           </p>
           <p className={styles.mainText}>
             <span className={styles.mainSpan}>Телефон </span> +7 (911) 260-61-46{" "}
@@ -37,7 +38,7 @@ const page = () => {
           </p>
           <p className={styles.mainText}>
             <span className={styles.mainSpan}>Режим работы </span>Пн-Пт с 10:00
-            до 19:00
+            до 22:00
           </p>
           <div className={styles.footerSocials}>
             <Link

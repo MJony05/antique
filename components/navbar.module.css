@@ -2,7 +2,7 @@
   width: 100%;
   background-color: white;
   position: sticky;
-  /* z-index: 99999; */
+  z-index: 99;
 }
 .navContent {
   display: flex;
@@ -16,6 +16,9 @@
 .navLinks {
   display: flex;
   gap: 50px;
+}
+.catalogHidden {
+  display: none;
 }
 .navLink {
   text-decoration: none;
@@ -67,7 +70,8 @@
   gap: 10px;
   background-color: white;
   flex-direction: column;
-  border: 2px solid #e3c05c;
+  border: 2px solid #d89b2b;
+  border-radius: 5px;
   z-index: 99;
 }
 .navSubLink {
@@ -113,9 +117,10 @@
 .catalog {
   position: absolute;
   background-color: white;
-  top: 100px;
+  top: 70px;
   left: 300px;
-  border: 1px solid #e3c05c;
+  border-radius: 5px;
+  border: 2px solid #e3c05c;
   /* z-index: 999999999; */
 }
 @media (max-width: 1200px) {

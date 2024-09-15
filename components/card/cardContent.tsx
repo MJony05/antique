@@ -39,7 +39,7 @@ const CardContent = ({ productId }: any) => {
 
   const handleAddToCart = () => {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    const productIndex = cart.findIndex(
+    const productIndex = cart?.findIndex(
       (item: any) => item.id === productData.id
     );
 
@@ -93,7 +93,7 @@ const CardContent = ({ productId }: any) => {
     return videoId;
   }
   return (
-    <main className="mainContent">
+    <main className="mainContents">
       <button className="backButton" onClick={() => window.history.back()}>
         <Image src="/arrow.svg" alt="arrow" width={20} height={20} /> Назад
       </button>

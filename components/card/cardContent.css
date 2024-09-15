@@ -1,4 +1,4 @@
-.mainContent {
+.mainContents {
   padding: 40px 20px;
   background-color: white;
 }
@@ -135,7 +135,7 @@
   .cardContent {
     gap: 10px;
   }
-  .mainContent {
+  .mainContents {
     padding: 20px 10px;
   }
   .mainImage {

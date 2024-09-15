@@ -79,9 +79,16 @@ const Page = () => {
               ₽
             </h3>
           </div>
-          <Link className="orderButton" href="/order">
+          <div
+            className="orderButton"
+            onClick={() => {
+              if (cart.length > 0) {
+                router.push("/order");
+              }
+            }}
+          >
             <Button text="Оформить заказ" />
-          </Link>
+          </div>
         </div>
       </main>
       <ContactForm />

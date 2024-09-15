@@ -49,7 +49,7 @@ const Header = () => {
   useEffect(() => {
     const checkSavedElons = () => {
       const products = JSON.parse(localStorage.getItem("cart") || "[]");
-
+      // console.log(products);
       setNumber(products.length);
     };
     checkSavedElons();
@@ -223,7 +223,7 @@ const Header = () => {
                   <div key={category.id}>
                     <Link
                       className={styles.catalogLink}
-                      href={`category/${category.id}`}
+                      href={`/category/${category.id}`}
                     >
                       <h3 className={styles.catalogName}>{category.name}</h3>
                     </Link>
@@ -234,8 +234,15 @@ const Header = () => {
                             key={subCategory.id}
                           >
                             <Link
+                              onClick={() => {
+                                localStorage.setItem(
+                                  "subcategory",
+                                  subCategory.id
+                                );
+                                // router.refresh();
+                              }}
                               className={styles.catalogLink}
-                              href={`category/${category.id}`}
+                              href={`/category/${category.id}`}
                             >
                               - {subCategory.name}
                             </Link>

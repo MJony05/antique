@@ -53,21 +53,34 @@ const Navbar = () => {
           <Link className={styles.navLink} href="/decor">
             Оформление в багет
           </Link>
-          <div onClick={() => setCatalog(!catalog)} className={styles.navLink}>
+          <div
+            onClick={() => {
+              setOpen(false);
+              setCatalog(!catalog);
+            }}
+            className={styles.navLink}
+          >
             Каталог{" "}
             <Image src="/vector.svg" alt="arrow" width={13} height={7} />
           </div>
 
-          {catalog && (
-            <div
-              // style={{ display: catalog ? "absolute" : "none" }}
-              className={styles.catalog}
-            >
-              <Catalog title={true} />
-            </div>
-          )}
+          <div
+            // style={{ display: catalog ? "absolute" : "none" }}
+            className={`${styles.catalog} ${
+              catalog ? "" : styles.catalogHidden
+            }`}
+          >
+            <Catalog title={true} />
+          </div>
+
           <div className={styles.navButton}>
-            <p className={styles.navLink} onClick={() => setOpen(!open)}>
+            <p
+              className={styles.navLink}
+              onClick={() => {
+                setCatalog(false);
+                setOpen(!open);
+              }}
+            >
               Услуги{" "}
               <Image src="/vector.svg" alt="arrow" width={13} height={7} />
             </p>

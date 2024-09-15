@@ -8,8 +8,9 @@ const CategoryContent = ({ categoryId, categoriesName }: any) => {
   const [categoryData, setCategoryData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [selectedSubcategory, setSelectedSubcategory] = useState(null);
+  const [selectedSubcategory, setSelectedSubcategory] = useState("all");
   const router = useRouter();
+
   const fetchCategoryData = async (url: string) => {
     try {
       setLoading(true);
@@ -25,10 +26,12 @@ const CategoryContent = ({ categoryId, categoriesName }: any) => {
       setLoading(false);
     }
   };
-
+  // useEffect(() => {}, [categoryId]);
   useEffect(() => {
+    // const url = `${process.env.NEXT_PUBLIC_API}category/product/${categoryId}`;
     const url = `${process.env.NEXT_PUBLIC_API}category/product/${categoryId}`;
     fetchCategoryData(url);
+    // fetchCategoryData(url);
 
     const scrollPosition = sessionStorage.getItem("scrollPosition");
     if (scrollPosition) {
@@ -36,13 +39,24 @@ const CategoryContent = ({ categoryId, categoriesName }: any) => {
 
       window.scrollTo(x, y);
     }
+    const subcategory = localStorage.getItem("subcategory");
+    if (subcategory) {
+      setSelectedSubcategory(subcategory);
+      const url = `${process.env.NEXT_PUBLIC_API}sub_categroy/product/${subcategory}`;
+      fetchCategoryData(url);
+      // localStorage.removeItem("subcategory");
+    }
   }, [categoryId]);
 
   useEffect(() => {
-    if (selectedSubcategory === null) {
+    if (selectedSubcategory === "vse") {
+      // console.log("nima gap");
+
       const url = `${process.env.NEXT_PUBLIC_API}category/product/${categoryId}`;
       fetchCategoryData(url);
-    } else {
+    } else if (selectedSubcategory === "all") {
+      localStorage.removeItem("subcategory");
+    } else if (selectedSubcategory !== "all" && selectedSubcategory !== "vse") {
       const url = `${process.env.NEXT_PUBLIC_API}sub_categroy/product/${selectedSubcategory}`;
       fetchCategoryData(url);
     }
@@ -65,9 +79,11 @@ const CategoryContent = ({ categoryId, categoriesName }: any) => {
         <div className={styles.ancientsFilter}>
           <p
             className={`${styles.ancientsFilterItem} ${
-              selectedSubcategory === null ? styles.active : ""
+              selectedSubcategory === "vse" || selectedSubcategory === "all"
+                ? styles.active
+                : ""
             }`}
-            onClick={() => setSelectedSubcategory(null)}
+            onClick={() => setSelectedSubcategory("vse")}
           >
             Все
           </p>
@@ -76,7 +92,7 @@ const CategoryContent = ({ categoryId, categoriesName }: any) => {
               <p
                 key={item.id}
                 className={`${styles.ancientsFilterItem} ${
-                  selectedSubcategory === item.id ? styles.active : ""
+                  +selectedSubcategory === item.id ? styles.active : ""
                 }`}
                 onClick={() => setSelectedSubcategory(item.id)}
               >

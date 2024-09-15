@@ -178,18 +178,27 @@
   .searchBox {
     display: flex;
   }
+  .navbar {
+    width: 100%;
+    left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 .open {
   position: absolute;
   top: -30px;
   right: 0;
   width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
   /* height: 100vh; Full screen height */
   background-color: white;
   display: flex;
   justify-content: space-between;
   /* transform: translateY(-150px); Start hidden above the screen */
   transition: transform 0.3s ease-in-out;
+  /* padding-bottom: 40px; */
 }
 
 .close {
@@ -237,6 +246,7 @@
   background-color: white;
   flex-direction: column;
   z-index: 99;
+  padding-bottom: 40px;
 }
 .navSubLink {
   text-decoration: none;

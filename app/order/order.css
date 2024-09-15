@@ -75,4 +75,7 @@ h2 {
   .formGroup {
     grid-template-columns: 1fr;
   }
+  h2 {
+    font-size: 20px;
+  }
 }

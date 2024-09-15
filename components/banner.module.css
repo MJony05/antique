@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  height: 280px;
+  height: 240px;
   justify-content: center;
   border: 20px solid white;
   border-image: url("/border.png") 30 round;
@@ -17,7 +17,7 @@
   object-fit: contain;
 }
 .title {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
