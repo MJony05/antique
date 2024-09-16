@@ -5,7 +5,6 @@ import Image from "next/image";
 import Button from "./details/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Catalog from "./details/Catalog";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -67,7 +66,26 @@ const Header = () => {
       setSearchResults([]);
     }
   }, [searchQuery]);
+  const handleClick = () => {
+    // First, navigate to #contact
+    router.push("#contact");
 
+    // After navigation, adjust the scroll position by 100px
+    if (open) {
+      setOpen(false);
+      setTimeout(() => {
+        const yOffset = -72; // Adjust for your header height
+        const y = window.scrollY + yOffset;
+        window.scrollTo({ top: y });
+      }, 400);
+    } else {
+      setTimeout(() => {
+        const yOffset = -170; // Adjust for your header height
+        const y = window.scrollY + yOffset;
+        window.scrollTo({ top: y });
+      }, 400); // Small delay to ensure scrolling happens after navigation
+    }
+  };
   return (
     <nav className={styles.navbar} style={{ zIndex: 100 }}>
       <div className={styles.navLeft}>
@@ -124,9 +142,14 @@ const Header = () => {
         </div>
       </div>
       <div className={styles.navRight}>
-        <Link href={"#contact"} className={styles.navRightItem}>
+        <div
+          onClick={() => {
+            handleClick();
+          }}
+          className={styles.navRightItem}
+        >
           <Button text="Заказать звонок" />
-        </Link>
+        </div>
         <div className={styles.cartIcon}>
           <Image
             onClick={() => {
@@ -144,6 +167,7 @@ const Header = () => {
           <Image src="/burger.svg" alt="burger" width={48} height={48} />
         </div>
         <div
+          style={{ paddingBottom: "20px" }}
           className={`${styles.open} ${open ? styles.visible : styles.close}`}
         >
           <div className={styles.nav}>
@@ -212,7 +236,10 @@ const Header = () => {
               </p>
 
               <div
-                style={{ display: open3 ? "flex" : "none" }}
+                style={{
+                  display: open3 ? "flex" : "none",
+                  paddingBottom: "30px",
+                }}
                 onClick={(e) => {
                   e.stopPropagation();
                   setOpen(false);
@@ -252,6 +279,20 @@ const Header = () => {
                   </div>
                 ))}
               </div>
+            </div>
+            <p className={styles.footerContentText}>
+              Санкт-Петербург, ТД &quot;ПАССАЖ&quot;, Невский проспект, дом 48,
+              1 этаж, 37 секция. с 10:00 до 22:00 <br /> <br /> Санкт-Петербург,
+              ТЦ &quot;МОСКВА&quot;, Площадь Александра Невского, дом 2, 1 этаж,
+              105 секция. с 10:00 до 21:00
+            </p>
+            <div
+              onClick={() => {
+                handleClick();
+              }}
+              className={styles.callBtn}
+            >
+              <Button text="Заказать звонок" />
             </div>
           </div>
           <Image

@@ -4,6 +4,7 @@ import ResponsiveCatalog from "@/components/home/ResponsiveCatalog";
 import Navbar from "@/components/Navbar";
 import React, { useEffect, useState } from "react";
 import "./order.css";
+import { toast } from "react-toastify";
 
 const Page = () => {
   const [countries, setCountries] = useState([]);
@@ -11,7 +12,7 @@ const Page = () => {
     name: "",
     surname: "",
     company: "",
-    country: 0,
+    country: 1,
     address: "",
     city: "",
     region: "",
@@ -44,12 +45,13 @@ const Page = () => {
     const products = JSON.parse(localStorage.getItem("cart") || "[]");
 
     const price = products.reduce(
-      (acc: number, item: { price: number; amount: number }) =>
-        acc + item.price * item.amount,
+      (acc: number, item: { price: number }) => acc + item.price,
       0
     );
+    const productForSending = products.map((item: { id: string }) => {
+      return { product: item.id };
+    });
 
-    // Combine form data and products
     const orderData = {
       first_name: formData.name,
       last_name: formData.surname,
@@ -61,7 +63,7 @@ const Page = () => {
       pochta_index: formData.postalCode,
       phone: formData.phone,
       email: formData.email,
-      product: products,
+      product: productForSending,
       price,
     };
     try {
@@ -80,7 +82,7 @@ const Page = () => {
           name: "",
           surname: "",
           company: "",
-          country: 0,
+          country: 1,
           address: "",
           city: "",
           region: "",
@@ -88,12 +90,16 @@ const Page = () => {
           phone: "",
           email: "",
         });
+        toast.success(
+          "Спасибо за ваш заказ! Он отправлен в обработку, скоро с вами свяжутся для подтверждения доставки"
+        );
       } else {
+        toast.error("Произошла ошибка при оформлении заказа");
         // Handle error
-        console.error("Failed to submit order");
+        // .error("Failed to submit order");
       }
     } catch (error) {
-      console.error("Error submitting order:", error);
+      toast.error("Произошла ошибка при оформлении заказа");
     }
   };
 

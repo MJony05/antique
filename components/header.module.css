@@ -198,9 +198,16 @@
   justify-content: space-between;
   /* transform: translateY(-150px); Start hidden above the screen */
   transition: transform 0.3s ease-in-out;
-  /* padding-bottom: 40px; */
+  padding-bottom: 40px;
 }
-
+.footerContentText {
+  text-align: center;
+  margin-top: 50px;
+}
+.callBtn {
+  /* margin-top: 20px; */
+  margin: 20px auto;
+}
 .close {
   transform: translateY(-100%);
   transition: transform 0.3s ease-in-out;
@@ -246,7 +253,7 @@
   background-color: white;
   flex-direction: column;
   z-index: 99;
-  padding-bottom: 40px;
+  /* padding-bottom: 40px; */
 }
 .navSubLink {
   text-decoration: none;

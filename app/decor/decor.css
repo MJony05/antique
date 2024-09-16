@@ -15,6 +15,7 @@
   font-family: "Noto serif", serif;
   font-weight: 500;
   margin-bottom: 20px;
+  text-align: center;
 }
 .typeCards {
   display: flex;
@@ -66,11 +67,15 @@
   object-fit: cover;
   border-radius: 5px;
 }
+.advContent .text {
+  text-align: left;
+}
 .text {
   margin-top: 10px;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+  text-align: center;
 }
 .text span {
   color: #b9802b;
@@ -80,6 +85,7 @@
   color: #b9802b;
   margin-top: 10px;
   font-weight: 500;
+  text-align: center;
 }
 .decorBigImage {
   width: 100%;
@@ -114,7 +120,7 @@
 .itemTitle {
   font-size: 48px;
   font-weight: 700;
-  line-height: 72px;
+  /* line-height: 72px; */
   text-align: left;
   color: #e3c05c;
 }
@@ -240,6 +246,9 @@
   }
 }
 @media (max-width: 768px) {
+  .text {
+    text-align: justify;
+  }
   .exampleContent {
     gap: 10px;
   }

@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import styles from "./navbar.module.css";
-import ResponsiveCatalog from "./home/ResponsiveCatalog";
 import Catalog from "./details/Catalog";
 
 const Navbar = () => {
@@ -11,6 +10,7 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [catalog, setCatalog] = useState(false);
+  const [isFixed, setIsFixed] = useState(false);
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
@@ -39,114 +39,138 @@ const Navbar = () => {
       setSearchResults([]);
     }
   }, [searchQuery]);
+  useEffect(() => {
+    const handleScroll = () => {
+      // console.log(window.scrollY); // Log the current scroll position
+      if (window.scrollY > 250) {
+        setIsFixed(true); // Make navbar fixed after 200px scroll
+      } else {
+        setIsFixed(false); // Revert to relative before 200px
+      }
+    };
 
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <div className={styles.navbar}>
-      <div className={styles.navContent}>
-        <div className={styles.navLinks}>
-          <Link className={styles.navLink} href="/about">
-            О нас
-          </Link>
-          <Link className={styles.navLink} href="/contacts">
-            Контакты
-          </Link>
-          <Link className={styles.navLink} href="/decor">
-            Оформление в багет
-          </Link>
-          <div
-            onClick={() => {
-              setOpen(false);
-              setCatalog(!catalog);
-            }}
-            className={styles.navLink}
-          >
-            Каталог{" "}
-            <Image src="/vector.svg" alt="arrow" width={13} height={7} />
-          </div>
-
-          <div
-            // style={{ display: catalog ? "absolute" : "none" }}
-            className={`${styles.catalog} ${
-              catalog ? "" : styles.catalogHidden
-            }`}
-          >
-            <Catalog title={true} />
-          </div>
-
-          <div className={styles.navButton}>
-            <p
-              className={styles.navLink}
+    <>
+      <div
+        style={{ display: isFixed ? "block" : "none", height: "100px" }}
+      ></div>
+      <div
+        // style={{ position: isFixed ? "fixed" : "relative", top: "100px" }}
+        className={`${styles.navbar} ${isFixed ? styles.navbarFixed : ""}`}
+      >
+        <div className={styles.navContent}>
+          <div className={styles.navLinks}>
+            <Link className={styles.navLink} href="/about">
+              О нас
+            </Link>
+            <Link className={styles.navLink} href="/contacts">
+              Контакты
+            </Link>
+            <Link className={styles.navLink} href="/decor">
+              Оформление в багет
+            </Link>
+            <div
               onClick={() => {
-                setCatalog(false);
-                setOpen(!open);
+                setOpen(false);
+                setCatalog(!catalog);
               }}
+              className={styles.navLink}
             >
-              Услуги{" "}
+              Каталог{" "}
               <Image src="/vector.svg" alt="arrow" width={13} height={7} />
-            </p>
-            {open && (
-              <div className={styles.navSubLinks}>
-                <Link className={styles.navSubLink} href="/primerka">
-                  Примерка
+            </div>
+
+            <div
+              // style={{ display: catalog ? "absolute" : "none" }}
+              className={`${styles.catalog} ${
+                catalog ? "" : styles.catalogHidden
+              }`}
+            >
+              <Catalog title={true} />
+            </div>
+
+            <div className={styles.navButton}>
+              <p
+                className={styles.navLink}
+                onClick={() => {
+                  setCatalog(false);
+                  setOpen(!open);
+                }}
+              >
+                Услуги{" "}
+                <Image src="/vector.svg" alt="arrow" width={13} height={7} />
+              </p>
+              {open && (
+                <div className={styles.navSubLinks}>
+                  <Link className={styles.navSubLink} href="/primerka">
+                    Примерка
+                  </Link>
+                  <Link className={styles.navSubLink} href="/payment">
+                    Оплата
+                  </Link>
+                  <Link className={styles.navSubLink} href="/delivery">
+                    Доставка
+                  </Link>
+                  <Link className={styles.navSubLink} href="/upakovka">
+                    Упаковка
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className={styles.searchBox}>
+            <input
+              className={styles.searchInput}
+              type="text"
+              placeholder="Поиск по каталогу"
+              value={searchQuery}
+              onChange={handleSearchInput}
+            />
+            <button className={styles.searchButton}>
+              <Image
+                className={styles.searchIcon}
+                src="/search-icon.svg"
+                alt="search-icon"
+                width={22}
+                height={22}
+              />
+            </button>
+          </div>
+        </div>
+        {searchQuery && (
+          <div className={styles.searchResults}>
+            {searchResults.length > 0 ? (
+              searchResults.map((result: any) => (
+                <Link
+                  href={`/product/${result.id}`}
+                  key={result.id}
+                  className={styles.searchResultItem}
+                >
+                  <Image
+                    width={100}
+                    height={100}
+                    src={result.images[0].image}
+                    alt={result.name}
+                    className={styles.searchResultImage}
+                  />
+                  <p>{result.name}</p>
                 </Link>
-                <Link className={styles.navSubLink} href="/payment">
-                  Оплата
-                </Link>
-                <Link className={styles.navSubLink} href="/delivery">
-                  Доставка
-                </Link>
-                <Link className={styles.navSubLink} href="/upakovka">
-                  Упаковка
-                </Link>
-              </div>
+              ))
+            ) : (
+              <div className={styles.searchResultItem}>No results found</div>
             )}
           </div>
-        </div>
-
-        <div className={styles.searchBox}>
-          <input
-            className={styles.searchInput}
-            type="text"
-            placeholder="Поиск по каталогу"
-            value={searchQuery}
-            onChange={handleSearchInput}
-          />
-          <button className={styles.searchButton}>
-            <Image
-              className={styles.searchIcon}
-              src="/search-icon.svg"
-              alt="search-icon"
-              width={22}
-              height={22}
-            />
-          </button>
-        </div>
+        )}
       </div>
-      {searchQuery && (
-        <div className={styles.searchResults}>
-          {searchResults.length > 0 ? (
-            searchResults.map((result: any) => (
-              <Link
-                href={`/product/${result.id}`}
-                key={result.id}
-                className={styles.searchResultItem}
-              >
-                <Image
-                  width={100}
-                  height={100}
-                  src={result.images[0].image}
-                  alt={result.name}
-                  className={styles.searchResultImage}
-                />
-                <p>{result.name}</p>
-              </Link>
-            ))
-          ) : (
-            <div className={styles.searchResultItem}>No results found</div>
-          )}
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 

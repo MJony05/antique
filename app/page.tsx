@@ -19,9 +19,7 @@ export default async function Home() {
   return (
     <>
       <Banner text="АРТ-ЛАВКА" />
-      <header className={styles.stickyNavbar}>
-        <Navbar />
-      </header>
+      <Navbar />
 
       <ResponsiveCatalog />
       <main className={styles.main}>

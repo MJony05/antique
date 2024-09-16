@@ -17,7 +17,7 @@ const Page = () => {
       <Banner text="Упаковка" />
       <Navbar />
       <ResponsiveCatalog />
-      <main>
+      <main className="upakovka">
         <p>
           Упаковка: мы гарантируем качественную упаковку для транспортировки
           работы в другие города России.

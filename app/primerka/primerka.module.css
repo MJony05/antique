@@ -3,18 +3,21 @@
   flex-direction: column;
   gap: 10px;
 }
-main {
+.main {
   padding: 40px 20px;
   background-color: white;
+  /* text-align: center; */
 }
-main p {
+.p {
   font-size: 20px;
+  text-align: center;
 }
 @media screen and (max-width: 768px) {
-  main {
+  .main {
     padding: 20px 10px;
   }
-  main p {
+  .p {
     font-size: 16px;
+    text-align: justify;
   }
 }
