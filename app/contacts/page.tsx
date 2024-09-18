@@ -34,7 +34,13 @@ const page = () => {
             +7 (931) 375-21-65
           </p>
           <p className={styles.mainText}>
-            <span className={styles.mainSpan}>E-mail </span> artlavka@mail.com
+            <span className={styles.mainSpan}>E-mail </span>{" "}
+            <a
+              style={{ textDecoration: "none", color: "black" }}
+              href="mailto:flora_t@mail.ru"
+            >
+              flora_t@mail.ru
+            </a>
           </p>
           <p className={styles.mainText}>
             <span className={styles.mainSpan}>Режим работы </span>Пн-Пт с 10:00

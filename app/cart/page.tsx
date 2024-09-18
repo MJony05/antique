@@ -16,10 +16,12 @@ const Page = () => {
   useEffect(() => {
     const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
     setCart(existingCart);
+    console.log(existingCart);
   }, []);
 
   const handleDelete = (id: string) => {
     const updatedCart = cart.filter((item: any) => item.id !== id);
+
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
 
@@ -72,10 +74,12 @@ const Page = () => {
           <div>
             <p>СУММА ЗАКАЗА:</p>
             <h3>
-              {cart.reduce(
-                (acc, item: { price: number }) => acc + item.price,
-                0
-              )}
+              {cart &&
+                cart.length > 0 &&
+                cart.reduce(
+                  (acc, item: { price: number }) => acc + item.price,
+                  0
+                )}
               ₽
             </h3>
           </div>

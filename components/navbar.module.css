@@ -62,8 +62,8 @@
 }
 .navSubLinks {
   position: absolute;
-  padding: 14px 32px;
-  width: 186px;
+  padding: 20px;
+  width: 224px;
   top: 120%;
   left: 0;
   display: flex;
@@ -80,7 +80,7 @@
   font-weight: 400;
   line-height: 24px;
   text-align: left;
-  text-transform: capitalize;
+  text-transform: none;
   color: #00000099;
 }
 .searchResults {
@@ -118,7 +118,7 @@
   position: absolute;
   background-color: white;
   top: 70px;
-  left: 300px;
+  left: 100px;
   border-radius: 5px;
   border: 2px solid #e3c05c;
   /* z-index: 999999999; */

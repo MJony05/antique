@@ -64,34 +64,34 @@ const CardContent = ({ productId }: any) => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  function getYouTubeVideoId(url: string | null | undefined): string | null {
-    if (typeof url !== "string" || !url) {
-      return null;
-    }
+  // function getYouTubeVideoId(url: string | null | undefined): string | null {
+  //   if (typeof url !== "string" || !url) {
+  //     return null;
+  //   }
 
-    let videoId: string | null = null;
+  //   let videoId: string | null = null;
 
-    if (url.includes("youtu.be")) {
-      // Handle shortened youtu.be links
-      videoId = url.split("/").pop()?.split("?")[0] || null;
-    } else if (url.includes("youtube.com")) {
-      const urlObj = new URL(url);
-      const path = urlObj.pathname;
+  //   if (url.includes("youtu.be")) {
+  //     // Handle shortened youtu.be links
+  //     videoId = url.split("/").pop()?.split("?")[0] || null;
+  //   } else if (url.includes("youtube.com")) {
+  //     const urlObj = new URL(url);
+  //     const path = urlObj.pathname;
 
-      if (urlObj.searchParams.has("v")) {
-        // Handle standard youtube.com links
-        videoId = urlObj.searchParams.get("v");
-      } else if (path.includes("/live/")) {
-        // Handle youtube.com/live/ links
-        videoId = path.split("/live/")[1].split("?")[0];
-      } else if (path.includes("/shorts/")) {
-        // Handle youtube.com/shorts/ links
-        videoId = path.split("/shorts/")[1].split("?")[0];
-      }
-    }
+  //     if (urlObj.searchParams.has("v")) {
+  //       // Handle standard youtube.com links
+  //       videoId = urlObj.searchParams.get("v");
+  //     } else if (path.includes("/live/")) {
+  //       // Handle youtube.com/live/ links
+  //       videoId = path.split("/live/")[1].split("?")[0];
+  //     } else if (path.includes("/shorts/")) {
+  //       // Handle youtube.com/shorts/ links
+  //       videoId = path.split("/shorts/")[1].split("?")[0];
+  //     }
+  //   }
 
-    return videoId;
-  }
+  //   return videoId;
+  // }
   return (
     <main className="mainContents">
       <button className="backButton" onClick={() => window.history.back()}>
@@ -143,7 +143,7 @@ const CardContent = ({ productId }: any) => {
               </div>
 
               <div className="more-images">
-                {productData.video && (
+                {/* {productData.video && (
                   <iframe
                     style={{
                       width: "100%",
@@ -161,7 +161,7 @@ const CardContent = ({ productId }: any) => {
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   ></iframe>
-                )}
+                )} */}
                 {productData.images.map((image: any, index: any) => (
                   <Image
                     key={index}

@@ -70,12 +70,6 @@ const Navbar = () => {
             <Link className={styles.navLink} href="/about">
               О нас
             </Link>
-            <Link className={styles.navLink} href="/contacts">
-              Контакты
-            </Link>
-            <Link className={styles.navLink} href="/decor">
-              Оформление в багет
-            </Link>
             <div
               onClick={() => {
                 setOpen(false);
@@ -88,7 +82,11 @@ const Navbar = () => {
             </div>
 
             <div
-              // style={{ display: catalog ? "absolute" : "none" }}
+              style={{
+                height: "500px",
+                overflowY: "scroll",
+                scrollbarWidth: "none",
+              }}
               className={`${styles.catalog} ${
                 catalog ? "" : styles.catalogHidden
               }`}
@@ -109,8 +107,11 @@ const Navbar = () => {
               </p>
               {open && (
                 <div className={styles.navSubLinks}>
+                  <Link className={styles.navSubLink} href="/decor">
+                    Оформление в багет
+                  </Link>
                   <Link className={styles.navSubLink} href="/primerka">
-                    Примерка
+                    Примерить в интерьере
                   </Link>
                   <Link className={styles.navSubLink} href="/payment">
                     Оплата
@@ -124,8 +125,10 @@ const Navbar = () => {
                 </div>
               )}
             </div>
+            <Link className={styles.navLink} href="/contacts">
+              Контакты
+            </Link>
           </div>
-
           <div className={styles.searchBox}>
             <input
               className={styles.searchInput}

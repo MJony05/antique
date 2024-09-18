@@ -28,12 +28,6 @@ const arr = [
   },
   {
     id: "3",
-    image: "/advantages/image-3.png",
-    title: "Высокое качество",
-    text: "Все представленные у нас работы проходят строгий отбор, что гарантирует их высокое качество и оригинальность.",
-  },
-  {
-    id: "4",
     image: "/advantages/image-4.png",
     title: "Индивидуальный подход",
     text: "Мы ценим каждого клиента и стремимся учитывать все ваши пожелания, предлагая индивидуальные решения и эксклюзивные предложения.",
@@ -80,7 +74,7 @@ const page = () => {
           <span>&quot;ВЕРНИСАЖ&quot;</span> – это место, где искусство
           становится частью вашей жизни!
         </h3>
-        <div className={styles.aboutImages}>
+        {/* <div className={styles.aboutImages}>
           <div className={styles.aboutImages1}>
             <Image
               className={styles.aboutImage1}
@@ -127,7 +121,7 @@ const page = () => {
               height={500}
             />
           </div>
-        </div>
+        </div> */}
         <div className={styles.aboutAdvantages}>
           <Title text="Преимущества" size={36} />
           <p className={styles.aboutSubtitle}>

@@ -15,7 +15,7 @@ const Header = () => {
   const router = useRouter();
   const [number, setNumber] = useState(0);
   const [data, setData] = useState([]);
-
+  const [isFixed, setIsFixed] = useState(false);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -86,8 +86,28 @@ const Header = () => {
       }, 400); // Small delay to ensure scrolling happens after navigation
     }
   };
+  useEffect(() => {
+    const handleScroll = () => {
+      // console.log(window.scrollY); // Log the current scroll position
+      if (window.scrollY > 100) {
+        setIsFixed(true); // Make navbar fixed after 200px scroll
+      } else {
+        setIsFixed(false); // Revert to relative before 200px
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <nav className={styles.navbar} style={{ zIndex: 100 }}>
+    <nav
+      className={styles.navbar}
+      style={{ zIndex: 100, backgroundColor: isFixed ? "white" : "" }}
+    >
       <div className={styles.navLeft}>
         <div className={styles.searchBox}>
           <input
@@ -118,8 +138,40 @@ const Header = () => {
             />
           </div>
           <p className={styles.navLeftItemText}>
-            Санкт-Петербург, ТД &quot;ПАССАЖ&quot;, <br /> Невский проспект, дом
-            48, 1 этаж, 37 секция.
+            Россия, Санкт-петербург, Ленинский просп., 151
+            {/* <br /> Санкт-Петербург, ТЦ &quot;МОСКВА&quot;,
+            Площадь Александра Невского, дом 2, 1 этаж, 105 секция. */}
+          </p>
+        </div>
+        <div className={styles.navLeftItem}>
+          <div className={styles.navLeftItemImage}>
+            <Image
+              src="/phone-icon.svg"
+              className={styles.navLeftItemImagee}
+              alt="phone"
+              width={24}
+              height={24}
+            />
+          </div>
+          <p className={styles.navLeftItemText}>
+            <span>Звоните с 9:00 до 22:00</span>
+            +7 (931) 375-21-65
+            {/* <br /> +8 (911) 260-61-46 */}
+          </p>
+        </div>
+        <div className={styles.navLeftItem}>
+          <div className={styles.navLeftItemImage}>
+            <Image
+              className={styles.navLeftItemImagee}
+              src="/location-icon.svg"
+              alt="logo"
+              width={24}
+              height={24}
+            />
+          </div>
+          <p className={styles.navLeftItemText}>
+            Москва, Александра Невского. ТЦ &quot;МОСКВА&quot;, площадь
+            Александра Невского, дом 2, 1 этаж, 105 секция
             {/* <br /> Санкт-Петербург, ТЦ &quot;МОСКВА&quot;,
             Площадь Александра Невского, дом 2, 1 этаж, 105 секция. */}
           </p>
@@ -171,6 +223,67 @@ const Header = () => {
           className={`${styles.open} ${open ? styles.visible : styles.close}`}
         >
           <div className={styles.nav}>
+            <div className={styles.navLeft}>
+              <div className={styles.navLeftItem}>
+                <div className={styles.navLeftItemImage}>
+                  <Image
+                    className={styles.navLeftItemImagee}
+                    src="/location-icon.svg"
+                    alt="logo"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <p className={styles.navLeftItemText}>
+                  Россия, Санкт-петербург, Ленинский просп., 151
+                </p>
+              </div>
+              <div className={styles.navLeftItem}>
+                <div className={styles.navLeftItemImage}>
+                  <Image
+                    src="/phone-icon.svg"
+                    className={styles.navLeftItemImagee}
+                    alt="phone"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <p className={styles.navLeftItemText}>
+                  <span>Звоните с 9:00 до 22:00</span>
+                  +7 (931) 375-21-65
+                </p>
+              </div>
+              <div className={styles.navLeftItem}>
+                <div className={styles.navLeftItemImage}>
+                  <Image
+                    className={styles.navLeftItemImagee}
+                    src="/location-icon.svg"
+                    alt="logo"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <p className={styles.navLeftItemText}>
+                  Москва, Александра Невского. ТЦ &quot;МОСКВА&quot;, площадь
+                  Александра Невского, дом 2, 1 этаж, 105 секция
+                </p>
+              </div>
+              <div className={styles.navLeftItem}>
+                <div className={styles.navLeftItemImage}>
+                  <Image
+                    src="/phone-icon.svg"
+                    className={styles.navLeftItemImagee}
+                    alt="phone"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <p className={styles.navLeftItemText}>
+                  <span>Звоните с 9:00 до 22:00</span>
+                  +7 (911) 260-61-46
+                </p>
+              </div>
+            </div>
             <Link
               className={styles.navLink}
               href="/about"
@@ -280,12 +393,12 @@ const Header = () => {
                 ))}
               </div>
             </div>
-            <p className={styles.footerContentText}>
+            {/* <p className={styles.footerContentText}>
               Санкт-Петербург, ТД &quot;ПАССАЖ&quot;, Невский проспект, дом 48,
               1 этаж, 37 секция. с 10:00 до 22:00 <br /> <br /> Санкт-Петербург,
               ТЦ &quot;МОСКВА&quot;, Площадь Александра Невского, дом 2, 1 этаж,
               105 секция. с 10:00 до 21:00
-            </p>
+            </p> */}
             <div
               onClick={() => {
                 handleClick();
