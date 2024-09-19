@@ -223,67 +223,6 @@ const Header = () => {
           className={`${styles.open} ${open ? styles.visible : styles.close}`}
         >
           <div className={styles.nav}>
-            <div className={styles.navLeft}>
-              <div className={styles.navLeftItem}>
-                <div className={styles.navLeftItemImage}>
-                  <Image
-                    className={styles.navLeftItemImagee}
-                    src="/location-icon.svg"
-                    alt="logo"
-                    width={24}
-                    height={24}
-                  />
-                </div>
-                <p className={styles.navLeftItemText}>
-                  Россия, Санкт-петербург, Ленинский просп., 151
-                </p>
-              </div>
-              <div className={styles.navLeftItem}>
-                <div className={styles.navLeftItemImage}>
-                  <Image
-                    src="/phone-icon.svg"
-                    className={styles.navLeftItemImagee}
-                    alt="phone"
-                    width={24}
-                    height={24}
-                  />
-                </div>
-                <p className={styles.navLeftItemText}>
-                  <span>Звоните с 9:00 до 22:00</span>
-                  +7 (931) 375-21-65
-                </p>
-              </div>
-              <div className={styles.navLeftItem}>
-                <div className={styles.navLeftItemImage}>
-                  <Image
-                    className={styles.navLeftItemImagee}
-                    src="/location-icon.svg"
-                    alt="logo"
-                    width={24}
-                    height={24}
-                  />
-                </div>
-                <p className={styles.navLeftItemText}>
-                  Москва, Александра Невского. ТЦ &quot;МОСКВА&quot;, площадь
-                  Александра Невского, дом 2, 1 этаж, 105 секция
-                </p>
-              </div>
-              <div className={styles.navLeftItem}>
-                <div className={styles.navLeftItemImage}>
-                  <Image
-                    src="/phone-icon.svg"
-                    className={styles.navLeftItemImagee}
-                    alt="phone"
-                    width={24}
-                    height={24}
-                  />
-                </div>
-                <p className={styles.navLeftItemText}>
-                  <span>Звоните с 9:00 до 22:00</span>
-                  +7 (911) 260-61-46
-                </p>
-              </div>
-            </div>
             <Link
               className={styles.navLink}
               href="/about"
@@ -391,6 +330,67 @@ const Header = () => {
                       : ""}
                   </div>
                 ))}
+              </div>
+            </div>
+            <div className={styles.navLeft} style={{ marginTop: "20px" }}>
+              <div className={styles.navLeftItem}>
+                <div className={styles.navLeftItemImage}>
+                  <Image
+                    className={styles.navLeftItemImagee}
+                    src="/location-icon.svg"
+                    alt="logo"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <p className={styles.navLeftItemText}>
+                  Россия, Санкт-петербург, Ленинский просп., 151
+                </p>
+              </div>
+              <div className={styles.navLeftItem}>
+                <div className={styles.navLeftItemImage}>
+                  <Image
+                    src="/phone-icon.svg"
+                    className={styles.navLeftItemImagee}
+                    alt="phone"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <p className={styles.navLeftItemText}>
+                  <span>Звоните с 9:00 до 22:00</span>
+                  +7 (931) 375-21-65
+                </p>
+              </div>
+              <div className={styles.navLeftItem}>
+                <div className={styles.navLeftItemImage}>
+                  <Image
+                    className={styles.navLeftItemImagee}
+                    src="/location-icon.svg"
+                    alt="logo"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <p className={styles.navLeftItemText}>
+                  Москва, Александра Невского. ТЦ &quot;МОСКВА&quot;, площадь
+                  Александра Невского, дом 2, 1 этаж, 105 секция
+                </p>
+              </div>
+              <div className={styles.navLeftItem}>
+                <div className={styles.navLeftItemImage}>
+                  <Image
+                    src="/phone-icon.svg"
+                    className={styles.navLeftItemImagee}
+                    alt="phone"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <p className={styles.navLeftItemText}>
+                  <span>Звоните с 9:00 до 22:00</span>
+                  +7 (911) 260-61-46
+                </p>
               </div>
             </div>
             {/* <p className={styles.footerContentText}>

@@ -42,7 +42,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       // console.log(window.scrollY); // Log the current scroll position
-      if (window.scrollY > 250) {
+      if (window.scrollY > 275) {
         setIsFixed(true); // Make navbar fixed after 200px scroll
       } else {
         setIsFixed(false); // Revert to relative before 200px
