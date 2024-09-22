@@ -80,19 +80,18 @@ const Header = () => {
       }, 400);
     } else {
       setTimeout(() => {
-        const yOffset = -170; // Adjust for your header height
+        const yOffset = -170;
         const y = window.scrollY + yOffset;
         window.scrollTo({ top: y });
-      }, 400); // Small delay to ensure scrolling happens after navigation
+      }, 400);
     }
   };
   useEffect(() => {
     const handleScroll = () => {
-      // console.log(window.scrollY); // Log the current scroll position
       if (window.scrollY > 100) {
-        setIsFixed(true); // Make navbar fixed after 200px scroll
+        setIsFixed(true);
       } else {
-        setIsFixed(false); // Revert to relative before 200px
+        setIsFixed(false);
       }
     };
 
@@ -138,7 +137,8 @@ const Header = () => {
             />
           </div>
           <p className={styles.navLeftItemText}>
-            Россия, Санкт-петербург, Ленинский просп., 151
+            Санкт-Петербург, ТЦ &quot;ПАССАЖ&quot;, Невский проспект, дом 48, 1
+            этаж, 37 секция.
             {/* <br /> Санкт-Петербург, ТЦ &quot;МОСКВА&quot;,
             Площадь Александра Невского, дом 2, 1 этаж, 105 секция. */}
           </p>
@@ -344,7 +344,8 @@ const Header = () => {
                   />
                 </div>
                 <p className={styles.navLeftItemText}>
-                  Россия, Санкт-петербург, Ленинский просп., 151
+                  Санкт-Петербург, ТЦ &quot;ПАССАЖ&quot;, Невский проспект, дом
+                  48, 1 этаж, 37 секция.
                 </p>
               </div>
               <div className={styles.navLeftItem}>

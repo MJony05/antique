@@ -126,7 +126,7 @@
 }
 .navbarFixed {
   position: fixed;
-  top: 90px;
+  top: 100px;
   width: 1280px;
   box-shadow: 0 5px 25px #00000016;
 }

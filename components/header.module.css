@@ -112,6 +112,7 @@
 }
 .cartIcon {
   position: relative;
+  transform: translateX(-10px);
 }
 .indicator {
   position: absolute;

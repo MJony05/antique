@@ -1,10 +1,10 @@
 # Handle 404 errors by redirecting to the index.html file
 ErrorDocument 404 /index.html
 
-# Ensure www is used in the URL
+# Ensure non-www is used in the URL
 RewriteEngine On
-RewriteCond %{HTTP_HOST} !^www\.
-RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
 # Redirect all requests to the index.html file for client-side routing
 RewriteCond %{REQUEST_FILENAME} !-f

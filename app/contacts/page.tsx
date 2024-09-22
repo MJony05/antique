@@ -21,7 +21,7 @@ const page = () => {
       <main className={styles.main}>
         <div className={styles.mainLeft}>
           <p className={styles.mainText}>
-            <span className={styles.mainSpan}>Адрес </span> Санкт-Петербург, ТД
+            <span className={styles.mainSpan}>Адрес </span> Санкт-Петербург, ТЦ
             &quot;ПАССАЖ&quot;, Невский проспект, дом 48, 1 этаж, 37 секция. с
             10:00 до 22:00
             <br />
