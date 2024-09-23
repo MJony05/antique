@@ -51,22 +51,22 @@ const Page = () => {
           <div className={styles.card}>
             <h3 className={styles.cardTitle}>01</h3>
             <p className={styles.cardText}>
-              По Санкт-Петербургу нашим курьером (в этот же день или по
-              согласованию, бесплатно от 10 т.р.)
+              По Санкт-Петербургу курьерской службой (дату и время по
+              согласованию) - по тарифам доставки.
             </p>
           </div>
           <div className={styles.card}>
             <h3 className={styles.cardTitle}>02</h3>
             <p className={styles.cardText}>
-              Самовывоз из магазина (в этот же день или по согласованию,
-              бесплатно)
+              Самовывоз из салона (в этот же день или по согласованию,
+              бесплатно).
             </p>
           </div>
           <div className={styles.card}>
             <h3 className={styles.cardTitle}>03</h3>
             <p className={styles.cardText}>
-              Курьерские службы доставки по России (от 1-х суток и более, по
-              тарифам службы доставки)
+              Курьерские службы доставки (CDEK) по всей России (от 1-х суток, по
+              тарифам службы доставки), а также Почтой России.
             </p>
           </div>
         </div>
@@ -83,10 +83,10 @@ const Page = () => {
             При получении товара вы вскрываете упаковку при курьере и проверяете
             её на целостность и соответствие комплектации.{" "}
           </p>
-          <p className={styles.text}>
+          {/* <p className={styles.text}>
             <b>Бесплатная доставка при заказе</b>{" "}
             <span className={styles.span}>от 10000 рублей.</span>
-          </p>
+          </p> */}
         </div>
         <div>
           <h2 className={styles.title}>Самовывоз из магазина</h2>
@@ -96,7 +96,7 @@ const Page = () => {
           </p>
         </div>
         <div>
-          <h2 className={styles.title}>Преимущества</h2>
+          {/* <h2 className={styles.title}>Преимущества</h2> */}
           <p className={styles.text}>
             Мы предоставляет высококачественные услуги по доставке, обеспечивая
             клиентам множество преимуществ:
@@ -104,12 +104,13 @@ const Page = () => {
           <div className={styles.whyContent}>
             {arr.map((item) => (
               <div className={styles.whyItem} key={item.id}>
-                <Image
+                {/* <Image
                   src={item.image}
                   alt="advantages"
                   width={50}
                   height={50}
-                />
+                /> */}
+                <p className={styles.cardId}>{item.id}</p>
                 <h4 className={styles.whyCardTitle}>{item.title}</h4>
                 <p className={styles.itemText}>{item.text}</p>
               </div>
