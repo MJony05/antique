@@ -9,27 +9,21 @@ import { Metadata } from "next";
 const arr = [
   {
     id: "1",
-    image: "/advantages/image-17.png",
+    image: "/delivery/delivery.svg",
     title: "Быстрая доставка",
-    text: "Мы гарантируем оперативную доставку товара в кратчайшие сроки. Независимо от вашего местоположения, наш курьер прибудет вовремя.",
+    text: "По Санкт-Петербургу курьерской службой (дату и время по согласованию) - по тарифам доставки.",
   },
   {
     id: "2",
-    image: "/advantages/image-18.png",
+    image: "/delivery/delivery-2.svg",
     title: "Удобное время доставки",
-    text: "Наш администратор свяжется с вами для уточнения адреса и выбора наиболее удобного времени доставки, чтобы вам не пришлось подстраиваться под расписание курьера.",
+    text: "Самовывоз из салона (в этот же день или по согласованию, бесплатно).",
   },
   {
     id: "3",
-    image: "/advantages/image-19.png",
+    image: "/delivery/delivery-3.svg",
     title: "Осмотр товара при доставке",
-    text: "Вы можете вскрыть упаковку при курьере, осмотреть товар на целостность и соответствие комплектации. Это позволяет вам убедиться в качестве продукта сразу же.",
-  },
-  {
-    id: "4",
-    image: "/advantages/image-20.png",
-    title: "Безопасность и надежность",
-    text: "Мы тщательно следим за сохранностью товара на всех этапах доставки, гарантируя его целостность и качество.",
+    text: "Курьерские службы доставки (CDEK) по всей России (от 1-х суток, по тарифам службы доставки), а    также Почтой России.",
   },
 ];
 export const metadata: Metadata = {
@@ -44,10 +38,27 @@ const Page = () => {
       <Navbar />
       <ResponsiveCatalog />
       <main className={styles.main}>
-        <p className={styles.text}>
+        <p className={`${styles.text} ${styles.mainText}`}>
           Мы предлогаем вам несколько вариантов доставки:
         </p>
-        <div className={styles.cards}>
+        <div className={styles.whyContent}>
+          {arr.map((item) => (
+            <div className={styles.whyItem} key={item.id}>
+              <Image src={item.image} alt="advantages" width={60} height={60} />
+              {/* <p className={styles.cardId}>{item.id}</p> */}
+              {/* <h4 className={styles.whyCardTitle}>{item.title}</h4> */}
+              <p className={styles.itemText}>{item.text}</p>
+            </div>
+          ))}
+        </div>
+        {/* <div>
+          <h2 className={styles.title}>Преимущества</h2>
+          <p className={styles.text}>
+            Мы предоставляет высококачественные услуги по доставке, обеспечивая
+            клиентам множество преимуществ:
+          </p>
+        </div> */}
+        {/* <div className={styles.cards}>
           <div className={styles.card}>
             <h3 className={styles.cardTitle}>01</h3>
             <p className={styles.cardText}>
@@ -69,7 +80,7 @@ const Page = () => {
               тарифам службы доставки), а также Почтой России.
             </p>
           </div>
-        </div>
+        </div> */}
         <div>
           <h2 className={styles.title}>
             Доставка по Санкт-Петербургу курьером галереи
@@ -94,28 +105,6 @@ const Page = () => {
             Вы можете забрать товар у нас в галерее по адресу Санкт-Петербург,
             Невский проспект, дом 48, заранее предупредив администратора. 
           </p>
-        </div>
-        <div>
-          {/* <h2 className={styles.title}>Преимущества</h2> */}
-          <p className={styles.text}>
-            Мы предоставляет высококачественные услуги по доставке, обеспечивая
-            клиентам множество преимуществ:
-          </p>
-          <div className={styles.whyContent}>
-            {arr.map((item) => (
-              <div className={styles.whyItem} key={item.id}>
-                {/* <Image
-                  src={item.image}
-                  alt="advantages"
-                  width={50}
-                  height={50}
-                /> */}
-                <p className={styles.cardId}>{item.id}</p>
-                <h4 className={styles.whyCardTitle}>{item.title}</h4>
-                <p className={styles.itemText}>{item.text}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </main>
       <ContactForm />

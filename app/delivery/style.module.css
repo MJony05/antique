@@ -53,7 +53,7 @@
 }
 .whyContent {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   margin-top: 20px;
 }
@@ -66,7 +66,7 @@
   column-gap: 10px;
   padding: 10px;
   background-color: white;
-  height: 240px;
+  height: 185px;
   transition: all 0.5s ease;
   box-shadow: 0px 5px 25px #00000020;
   border-radius: 5px;
@@ -94,7 +94,7 @@
   font-weight: 400;
   line-height: 19.5px;
   text-align: left;
-  color: #000000b2;
+  color: #000000;
 }
 @media (max-width: 1000px) {
   .whyContent {
@@ -103,9 +103,17 @@
 }
 
 @media (max-width: 768px) {
+  .main {
+    padding: 20px 10px;
+  }
   .text {
     padding: 20px 10px;
     text-align: justify;
+  }
+  .mainText {
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
   }
   .cards {
     grid-template-columns: 1fr;
@@ -115,7 +123,7 @@
     padding: 10px;
   }
   .text {
-    font-size: 14px;
+    font-size: 16px;
   }
   .title {
     margin-top: 10px;

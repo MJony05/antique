@@ -48,7 +48,10 @@ const page = () => {
           друзьям. Доступность и изысканность - главные характеристики подлинных
           произведений искусства, которые представлены здесь.
         </p>
-        <p>ЭТО КРАСИВО, ЭТО ДОСТУПНО, ЭТО ВЕЧНО.</p>
+        <p>
+          {" "}
+          <span>ЭТО КРАСИВО, ЭТО ДОСТУПНО, ЭТО ВЕЧНО.</span>
+        </p>
         <p>
           Наша миссия – объединить художников, мастеров и ценителей прекрасного
           в одном пространстве, где каждый сможет найти что-то особенное для
@@ -66,7 +69,7 @@ const page = () => {
           <span>&quot;ВЕРНИСАЖ&quot;</span> – это место, где искусство
           становится частью вашей жизни!
         </h3>
-        {/* <div className={styles.aboutImages}>
+        <div className={styles.aboutImages}>
           <div className={styles.aboutImages1}>
             <Image
               className={styles.aboutImage1}
@@ -113,8 +116,8 @@ const page = () => {
               height={500}
             />
           </div>
-        </div> */}
-        <div className={styles.aboutAdvantages}>
+        </div>
+        {/* <div className={styles.aboutAdvantages}>
           <Title text="Преимущества" size={36} />
           <p className={styles.aboutSubtitle}>
             <span>&quot;ВЕРНИСАЖ&quot;</span> — это уникальное место, где каждый
@@ -135,7 +138,7 @@ const page = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
       <ContactForm />
     </div>

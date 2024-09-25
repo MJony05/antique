@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./navbar.module.css";
 import Catalog from "./details/Catalog";
 
@@ -11,6 +11,33 @@ const Navbar = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [catalog, setCatalog] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
+  const catalogRef = useRef<HTMLDivElement>(null);
+  const uslugRef = useRef<HTMLDivElement>(null);
+  const handleDocumentClick = (event: MouseEvent) => {
+    // Close catalog if clicked outside
+    if (
+      catalogRef.current &&
+      !catalogRef.current?.contains(event.target as Node) &&
+      catalog
+    ) {
+      setCatalog(false);
+    }
+    // Close uslugi if clicked outside
+    if (
+      uslugRef.current &&
+      !uslugRef.current?.contains(event.target as Node) &&
+      open
+    ) {
+      setOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleDocumentClick);
+    return () => {
+      document.removeEventListener("mousedown", handleDocumentClick);
+    };
+  }, [catalog, open]);
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
@@ -20,7 +47,6 @@ const Navbar = () => {
         `${process.env.NEXT_PUBLIC_API}product?q=${query}`
       );
       const results = await response.json();
-      console.log(results.results);
       setSearchResults(results.results);
     } catch (error) {
       console.error("Error fetching search results:", error);
@@ -70,31 +96,41 @@ const Navbar = () => {
             <Link className={styles.navLink} href="/about">
               О нас
             </Link>
-            <div
-              onClick={() => {
-                setOpen(false);
-                setCatalog(!catalog);
-              }}
-              className={styles.navLink}
-            >
-              Каталог{" "}
-              <Image src="/vector.svg" alt="arrow" width={13} height={7} />
+            <div ref={catalogRef}>
+              <div
+                ref={catalogRef}
+                onClick={() => {
+                  setOpen(false);
+                  setCatalog(!catalog);
+                }}
+                className={styles.navLink}
+              >
+                Каталог{" "}
+                <Image
+                  className={`${styles.navArrow} ${
+                    !catalog ? "" : styles.rotate
+                  }`}
+                  src="/vector.svg"
+                  alt="arrow"
+                  width={13}
+                  height={7}
+                />
+              </div>
+              <div
+                style={{
+                  height: "500px",
+                  overflowY: "scroll",
+                  scrollbarWidth: "none",
+                }}
+                className={`${styles.catalog} ${
+                  catalog ? "" : styles.catalogHidden
+                }`}
+              >
+                <Catalog title={true} />
+              </div>
             </div>
 
-            <div
-              style={{
-                height: "500px",
-                overflowY: "scroll",
-                scrollbarWidth: "none",
-              }}
-              className={`${styles.catalog} ${
-                catalog ? "" : styles.catalogHidden
-              }`}
-            >
-              <Catalog title={true} />
-            </div>
-
-            <div className={styles.navButton}>
+            <div className={styles.navButton} ref={uslugRef}>
               <p
                 className={styles.navLink}
                 onClick={() => {
@@ -103,7 +139,13 @@ const Navbar = () => {
                 }}
               >
                 Услуги{" "}
-                <Image src="/vector.svg" alt="arrow" width={13} height={7} />
+                <Image
+                  className={`${styles.navArrow} ${!open ? "" : styles.rotate}`}
+                  src="/vector.svg"
+                  alt="arrow"
+                  width={13}
+                  height={7}
+                />
               </p>
               {open && (
                 <div className={styles.navSubLinks}>

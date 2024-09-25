@@ -40,14 +40,15 @@
   align-items: space-between;
 }
 .contentLeft p {
-  font-size: 16px;
+  /* font-family: Montserrat; */
+  font-size: 18px;
   line-height: 24px;
   font-weight: 400;
   text-align: justify;
 }
 .contentLeft p span {
   color: #b9802b;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 .contentRight {
   width: 500px;
@@ -132,7 +133,7 @@
     height: auto;
   }
   .contentLeft p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .pagination2 {
     display: flex;
