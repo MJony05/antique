@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <div className="page">
-      <Banner text="Упаковка" />
+      <Banner text="Оформление гравюр, картин, акварелей, вышивок, гобеленов, фото и зеркал" />
       <Navbar />
       <ResponsiveCatalog />
       <main className="upakovka">
