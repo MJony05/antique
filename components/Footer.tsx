@@ -141,11 +141,20 @@ const Footer = () => {
                 height={24}
               />
             </div>
-            <p className={styles.footerContentText}>
-              <span>Звоните с 9:00 до 22:00</span>
-              +7 (911) 260-61-46
-              <br />
-              <br /> +7 (931) 375-21-65
+            <p
+              className={`${styles.footerContentText} ${styles.footerContentTextPhone}`}
+            >
+              <div>
+                <span>Звоните с 9:00 до 22:00</span>
+                +7 (911) 260-61-46
+                <br />
+                <br /> +7 (931) 375-21-65
+              </div>
+              <div>
+                ООО &quot;Аллан Бенджамин Компани&quot; <br />
+                ИНН/КПП: 7842342008/784101001; <br /> ОГРН: 5067847327950 <br />{" "}
+                ОКПО: 96763004 <br /> ОКАТО: 40298564000 <br /> ОКТМО: 40911000
+              </div>
             </p>
           </div>
           <div className={styles.footerSocials}>

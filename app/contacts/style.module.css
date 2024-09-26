@@ -38,9 +38,21 @@
   text-align: left;
   color: #a6a6a6;
 }
+.contactDiv {
+  display: flex;
+  gap: 10px;
+}
+.contactDiv div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 @media (max-width: 768px) {
   .main {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+  .contactDiv {
+    flex-direction: column;
   }
 }

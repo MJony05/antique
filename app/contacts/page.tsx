@@ -28,24 +28,33 @@ const page = () => {
             Санкт-Петербург, ТЦ &quot;МОСКВА&quot;, Площадь Александра Невского,
             дом 2, 1 этаж, 105 секция. с 10:00 до 21:00
           </p>
-          <p className={styles.mainText}>
-            <span className={styles.mainSpan}>Телефон </span> +7 (911) 260-61-46{" "}
-            <br />
-            +7 (931) 375-21-65
-          </p>
-          <p className={styles.mainText}>
-            <span className={styles.mainSpan}>E-mail </span>{" "}
-            <a
-              style={{ textDecoration: "none", color: "black" }}
-              href="mailto:flora_t@mail.ru"
-            >
-              flora_t@mail.ru
-            </a>
-          </p>
-          <p className={styles.mainText}>
-            <span className={styles.mainSpan}>Режим работы </span>Пн-Пт с 10:00
-            до 22:00
-          </p>
+          <div className={styles.contactDiv}>
+            <div>
+              <p className={styles.mainText}>
+                <span className={styles.mainSpan}>Телефон </span> +7 (911)
+                260-61-46 <br />
+                +7 (931) 375-21-65
+              </p>
+              <p className={styles.mainText}>
+                <span className={styles.mainSpan}>E-mail </span>{" "}
+                <a
+                  style={{ textDecoration: "none", color: "black" }}
+                  href="mailto:flora_t@mail.ru"
+                >
+                  flora_t@mail.ru
+                </a>
+              </p>
+              <p className={styles.mainText}>
+                <span className={styles.mainSpan}>Режим работы </span>Пн-Пт с
+                10:00 до 22:00
+              </p>
+            </div>
+            <div>
+              ООО &quot;Аллан Бенджамин Компани&quot; <br />
+              ИНН/КПП: 7842342008/784101001; <br /> ОГРН: 5067847327950 <br />{" "}
+              ОКПО: 96763004 <br /> ОКАТО: 40298564000 <br /> ОКТМО: 40911000
+            </div>
+          </div>
           <div className={styles.footerSocials}>
             <Link
               className={styles.footerLink}
