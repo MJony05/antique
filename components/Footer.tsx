@@ -51,7 +51,7 @@ const Footer = () => {
         <div className={styles.footerContent}>
           <h3 className={styles.footerHeader}>Услуги</h3>
           <Link className={styles.footerLink} href="/primerka">
-            Примерка
+            Примерить в интерьере
           </Link>
           <Link className={styles.footerLink} href="/delivery">
             Доставка

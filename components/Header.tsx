@@ -268,7 +268,7 @@ const Header = () => {
                 className={styles.navSubLinks}
               >
                 <Link className={styles.navSubLink} href="/primerka">
-                  Примерка
+                  Примерить в интерьере
                 </Link>
                 <Link className={styles.navSubLink} href="/payment">
                   Оплата
