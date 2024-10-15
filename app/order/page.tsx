@@ -112,7 +112,7 @@ const Page = () => {
           amount: price,
           currency: "RUB",
           description: "Заказ №1",
-          returnUrl: "https://vernissage-art.ru",
+          returnUrl: "https://example.com/success",
         }),
       });
       const data = await response.json();
