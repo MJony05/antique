@@ -102,64 +102,21 @@ const Page = () => {
       }
     };
 
-    // try {
-    //   const response = await fetch("/api/create-payment", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       amount: price,
-    //       currency: "RUB",
-    //       description: "Заказ №1",
-    //       returnUrl: "https://vernissage-art.ru",
-    //     }),
-    //   });
-    //   const data = await response.json();
-    //   console.log(data);
-    //   if (data.confirmationUrl) {
-    //     console.log("link", data.confirmationUrl);
-    //     postData();
-    //     window.location.href = data.confirmationUrl;
-    //   } else {
-    //     alert("Payment failed: " + data.message);
-    //   }
-    // } catch (error) {
-    //   console.error("Error:", error);
-    // } finally {
-    // }
-    const shopId = process.env.YOOMONEY_SHOP_ID;
-    const apiKey = process.env.YOOMONEY_API_KEY;
-    const idempotenceKey = Date.now().toString();
-    const auth =
-      "Basic " + Buffer.from(`${shopId}:${apiKey}`).toString("base64");
-    const paymentData = {
-      amount: {
-        value: 1000,
-        currency: "RUB",
-      },
-      capture: true,
-      confirmation: {
-        type: "redirect",
-        return_url: "https://vernissage-art.ru",
-      },
-      description: "Payment for services",
-    };
     try {
-      const res = await fetch("https://api.yookassa.ru/v3/payments", {
+      const response = await fetch("/api/create-payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: auth,
-          "Idempotence-Key": idempotenceKey,
         },
-        body: JSON.stringify(paymentData),
+        body: JSON.stringify({
+          amount: price,
+          currency: "RUB",
+          description: "Заказ №1",
+          returnUrl: "https://vernissage-art.ru",
+        }),
       });
-      const data = await res.json();
+      const data = await response.json();
       console.log(data);
-      if (!res.ok) {
-        throw new Error(data.description || "Failed to create payment");
-      }
       if (data.confirmationUrl) {
         console.log("link", data.confirmationUrl);
         postData();
@@ -169,6 +126,7 @@ const Page = () => {
       }
     } catch (error) {
       console.error("Error:", error);
+    } finally {
     }
   };
   // const handlePayment = async () => {
