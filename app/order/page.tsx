@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import React, { useEffect, useState } from "react";
 import "./order.css";
 import { toast } from "react-toastify";
-
 const Page = () => {
   const [countries, setCountries] = useState([]);
   const [formData, setFormData] = useState({
@@ -66,43 +65,149 @@ const Page = () => {
       product: productForSending,
       price,
     };
+    const postData = async () => {
+      try {
+        const response = await fetch(process.env.NEXT_PUBLIC_API + "basket/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(orderData),
+        });
+        if (response.ok) {
+          localStorage.removeItem("cart");
+
+          setFormData({
+            name: "",
+            surname: "",
+            company: "",
+            country: 1,
+            address: "",
+            city: "",
+            region: "",
+            postalCode: "",
+            phone: "",
+            email: "",
+          });
+          toast.success(
+            "Спасибо за ваш заказ! Он отправлен в обработку, скоро с вами свяжутся для подтверждения доставки"
+          );
+        } else {
+          toast.error("Произошла ошибка при оформлении заказа");
+          // Handle error
+          // .error("Failed to submit order");
+        }
+      } catch (error) {
+        toast.error("Произошла ошибка при оформлении заказа");
+      }
+    };
+
+    // try {
+    //   const response = await fetch("/api/create-payment", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       amount: price,
+    //       currency: "RUB",
+    //       description: "Заказ №1",
+    //       returnUrl: "https://vernissage-art.ru",
+    //     }),
+    //   });
+    //   const data = await response.json();
+    //   console.log(data);
+    //   if (data.confirmationUrl) {
+    //     console.log("link", data.confirmationUrl);
+    //     postData();
+    //     window.location.href = data.confirmationUrl;
+    //   } else {
+    //     alert("Payment failed: " + data.message);
+    //   }
+    // } catch (error) {
+    //   console.error("Error:", error);
+    // } finally {
+    // }
+    const shopId = process.env.YOOMONEY_SHOP_ID;
+    const apiKey = process.env.YOOMONEY_API_KEY;
+    const idempotenceKey = Date.now().toString();
+    const auth =
+      "Basic " + Buffer.from(`${shopId}:${apiKey}`).toString("base64");
+    const paymentData = {
+      amount: {
+        value: 1000,
+        currency: "RUB",
+      },
+      capture: true,
+      confirmation: {
+        type: "redirect",
+        return_url: "https://vernissage-art.ru",
+      },
+      description: "Payment for services",
+    };
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_API + "basket/", {
+      const res = await fetch("https://api.yookassa.ru/v3/payments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: auth,
+          "Idempotence-Key": idempotenceKey,
         },
-        body: JSON.stringify(orderData),
+        body: JSON.stringify(paymentData),
       });
-
-      if (response.ok) {
-        localStorage.removeItem("cart");
-
-        setFormData({
-          name: "",
-          surname: "",
-          company: "",
-          country: 1,
-          address: "",
-          city: "",
-          region: "",
-          postalCode: "",
-          phone: "",
-          email: "",
-        });
-        toast.success(
-          "Спасибо за ваш заказ! Он отправлен в обработку, скоро с вами свяжутся для подтверждения доставки"
-        );
+      const data = await res.json();
+      console.log(data);
+      if (!res.ok) {
+        throw new Error(data.description || "Failed to create payment");
+      }
+      if (data.confirmationUrl) {
+        console.log("link", data.confirmationUrl);
+        postData();
+        window.location.href = data.confirmationUrl;
       } else {
-        toast.error("Произошла ошибка при оформлении заказа");
-        // Handle error
-        // .error("Failed to submit order");
+        alert("Payment failed: " + data.message);
       }
     } catch (error) {
-      toast.error("Произошла ошибка при оформлении заказа");
+      console.error("Error:", error);
     }
   };
+  // const handlePayment = async () => {
+  //   try {
+  //     const response = await fetch("https://api.yookassa.ru/v3/payments", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "Idempotence-Key": crypto.randomUUID(),
+  //         Authorization: `Bearer ${process.env.NEXT_PUBLIC_YOOMONEY_API_KEY}`,
+  //       },
+  //       body: JSON.stringify({
+  //         amount: {
+  //           value: 1000,
+  //           currency: "RUB",
+  //         },
+  //         confirmation: {
+  //           type: "redirect",
+  //           return_url: `${window.location.origin}?payment=success`,
+  //         },
+  //         description: "Payment for services",
+  //       }),
+  //     });
 
+  //     const data = await response.json();
+  //     console.log(data);
+  //     if (!response.ok) {
+  //       throw new Error(data.description || "Failed to create payment");
+  //     }
+
+  //     if (data.confirmation && data.confirmation.confirmation_url) {
+  //       window.location.href = data.confirmation.confirmation_url;
+  //     } else {
+  //       throw new Error("No confirmation URL in the payment response");
+  //     }
+  //   } catch (error) {
+  //     console.error("Payment creation failed:", error);
+  //   }
+  // };
   return (
     <div className="order">
       <Banner text="оформление заказа" />
