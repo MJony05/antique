@@ -6,7 +6,6 @@ export async function POST(req: Request) {
 
   const shopId = process.env.YOOMONEY_SHOP_ID;
   const apiKey = process.env.YOOMONEY_API_KEY;
-  console.log(apiKey, shopId, "nimadisdfsfsf");
   const idempotenceKey = Date.now().toString();
 
   const auth = "Basic " + Buffer.from(`${shopId}:${apiKey}`).toString("base64");

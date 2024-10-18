@@ -141,7 +141,7 @@ const Footer = () => {
                 height={24}
               />
             </div>
-            <p
+            <div
               className={`${styles.footerContentText} ${styles.footerContentTextPhone}`}
             >
               <div>
@@ -155,7 +155,7 @@ const Footer = () => {
                 ИНН/КПП: 7842342008/784101001; <br /> ОГРН: 5067847327950 <br />{" "}
                 ОКПО: 96763004 <br /> ОКАТО: 40298564000 <br /> ОКТМО: 40911000
               </div>
-            </p>
+            </div>
           </div>
           <div className={styles.footerSocials}>
             <Link

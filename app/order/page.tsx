@@ -103,24 +103,24 @@ const Page = () => {
     };
 
     try {
-      const response = await fetch("/api/create-payment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          amount: price,
-          currency: "RUB",
-          description: "Заказ №1",
-          returnUrl: "https://example.com/success",
-        }),
-      });
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_API + "create-payment/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            amount: price,
+          }),
+        }
+      );
       const data = await response.json();
-      console.log(data);
+
       if (data.confirmationUrl) {
-        console.log("link", data.confirmationUrl);
+        // console.log("link", data.confirmationUrl);
         postData();
-        window.location.href = data.confirmationUrl;
+        // window.location.href = data.confirmationUrl;
       } else {
         alert("Payment failed: " + data.message);
       }
@@ -271,7 +271,7 @@ const Page = () => {
             <input
               required
               id="postalCode"
-              type="text"
+              type="number"
               value={formData.postalCode}
               onChange={handleInputChange}
             />
